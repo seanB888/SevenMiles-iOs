@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		2AD2563427A2EE661B4309D4 /* Pods_SevenMiles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87A9C71C42AD59DA48489EC9 /* Pods_SevenMiles.framework */; };
 		875DFB7A27114ADE008B56DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 875DFB7927114ADE008B56DA /* GoogleService-Info.plist */; };
+		875DFB7F2711F1FA008B56DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 875DFB7E2711F1FA008B56DA /* Main.storyboard */; };
 		8760FB3D2711112E003D915A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760FB3C2711112E003D915A /* AppDelegate.swift */; };
 		8760FB3F2711112E003D915A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760FB3E2711112E003D915A /* SceneDelegate.swift */; };
 		8760FB412711112E003D915A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760FB402711112E003D915A /* HomeViewController.swift */; };
-		8760FB442711112E003D915A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8760FB422711112E003D915A /* Main.storyboard */; };
 		8760FB4627111130003D915A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8760FB4527111130003D915A /* Assets.xcassets */; };
 		8760FB4927111130003D915A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8760FB4727111130003D915A /* LaunchScreen.storyboard */; };
 		8760FB5927111BE0003D915A /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760FB5827111BE0003D915A /* CameraViewController.swift */; };
@@ -37,11 +37,11 @@
 		082AA6076905686DF6D41A99 /* Pods-SevenMiles.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SevenMiles.release.xcconfig"; path = "Target Support Files/Pods-SevenMiles/Pods-SevenMiles.release.xcconfig"; sourceTree = "<group>"; };
 		5AD9E37F20FC127DCBB5F160 /* Pods-SevenMiles.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SevenMiles.debug.xcconfig"; path = "Target Support Files/Pods-SevenMiles/Pods-SevenMiles.debug.xcconfig"; sourceTree = "<group>"; };
 		875DFB7927114ADE008B56DA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		875DFB7E2711F1FA008B56DA /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8760FB392711112E003D915A /* SevenMiles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SevenMiles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8760FB3C2711112E003D915A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8760FB3E2711112E003D915A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8760FB402711112E003D915A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		8760FB432711112E003D915A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8760FB4527111130003D915A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8760FB4827111130003D915A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8760FB4A27111130003D915A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -151,7 +151,6 @@
 				8760FB7827113316003D915A /* GoogleService-Info (1).plist */,
 				8760FB6B27111CE3003D915A /* Other */,
 				8760FB6A27111CCB003D915A /* StoryBoard */,
-				8760FB422711112E003D915A /* Main.storyboard */,
 				8760FB4727111130003D915A /* LaunchScreen.storyboard */,
 			);
 			path = Views;
@@ -211,6 +210,7 @@
 		8760FB6A27111CCB003D915A /* StoryBoard */ = {
 			isa = PBXGroup;
 			children = (
+				875DFB7E2711F1FA008B56DA /* Main.storyboard */,
 			);
 			path = StoryBoard;
 			sourceTree = "<group>";
@@ -284,9 +284,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8760FB4927111130003D915A /* LaunchScreen.storyboard in Resources */,
+				875DFB7F2711F1FA008B56DA /* Main.storyboard in Resources */,
 				8760FB4627111130003D915A /* Assets.xcassets in Resources */,
 				875DFB7A27114ADE008B56DA /* GoogleService-Info.plist in Resources */,
-				8760FB442711112E003D915A /* Main.storyboard in Resources */,
 				8760FB7927113316003D915A /* GoogleService-Info (1).plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -381,14 +381,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		8760FB422711112E003D915A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8760FB432711112E003D915A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		8760FB4727111130003D915A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
