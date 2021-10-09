@@ -7,23 +7,61 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2AD2563427A2EE661B4309D4 /* Pods_SevenMiles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87A9C71C42AD59DA48489EC9 /* Pods_SevenMiles.framework */; };
+		875DFB7A27114ADE008B56DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 875DFB7927114ADE008B56DA /* GoogleService-Info.plist */; };
 		8760FB3D2711112E003D915A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760FB3C2711112E003D915A /* AppDelegate.swift */; };
 		8760FB3F2711112E003D915A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760FB3E2711112E003D915A /* SceneDelegate.swift */; };
-		8760FB412711112E003D915A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760FB402711112E003D915A /* ViewController.swift */; };
+		8760FB412711112E003D915A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760FB402711112E003D915A /* HomeViewController.swift */; };
 		8760FB442711112E003D915A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8760FB422711112E003D915A /* Main.storyboard */; };
 		8760FB4627111130003D915A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8760FB4527111130003D915A /* Assets.xcassets */; };
 		8760FB4927111130003D915A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8760FB4727111130003D915A /* LaunchScreen.storyboard */; };
+		8760FB5927111BE0003D915A /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760FB5827111BE0003D915A /* CameraViewController.swift */; };
+		8760FB5B27111BF6003D915A /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760FB5A27111BF6003D915A /* ExploreViewController.swift */; };
+		8760FB5D27111C09003D915A /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760FB5C27111C09003D915A /* NotificationViewController.swift */; };
+		8760FB5F27111C19003D915A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760FB5E27111C19003D915A /* ProfileViewController.swift */; };
+		8760FB6127111C4C003D915A /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760FB6027111C4C003D915A /* UserListViewController.swift */; };
+		8760FB6327111C59003D915A /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760FB6227111C59003D915A /* SigninViewController.swift */; };
+		8760FB6527111C68003D915A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760FB6427111C68003D915A /* SignUpViewController.swift */; };
+		8760FB6727111C74003D915A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760FB6627111C74003D915A /* SettingsViewController.swift */; };
+		8760FB6927111CB4003D915A /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760FB6827111CB4003D915A /* TabBarViewController.swift */; };
+		8760FB6D27111D2B003D915A /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760FB6C27111D2B003D915A /* PostViewController.swift */; };
+		8760FB6F27111D4A003D915A /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760FB6E27111D4A003D915A /* APICaller.swift */; };
+		8760FB7127111D5B003D915A /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760FB7027111D5B003D915A /* StorageManager.swift */; };
+		8760FB7327111D6E003D915A /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760FB7227111D6E003D915A /* DatabaseManager.swift */; };
+		8760FB7527111D84003D915A /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760FB7427111D84003D915A /* AuthenticationManager.swift */; };
+		8760FB7727111D9D003D915A /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760FB7627111D9D003D915A /* HapticsManager.swift */; };
+		8760FB7927113316003D915A /* GoogleService-Info (1).plist in Resources */ = {isa = PBXBuildFile; fileRef = 8760FB7827113316003D915A /* GoogleService-Info (1).plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		082AA6076905686DF6D41A99 /* Pods-SevenMiles.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SevenMiles.release.xcconfig"; path = "Target Support Files/Pods-SevenMiles/Pods-SevenMiles.release.xcconfig"; sourceTree = "<group>"; };
+		5AD9E37F20FC127DCBB5F160 /* Pods-SevenMiles.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SevenMiles.debug.xcconfig"; path = "Target Support Files/Pods-SevenMiles/Pods-SevenMiles.debug.xcconfig"; sourceTree = "<group>"; };
+		875DFB7927114ADE008B56DA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8760FB392711112E003D915A /* SevenMiles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SevenMiles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8760FB3C2711112E003D915A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8760FB3E2711112E003D915A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8760FB402711112E003D915A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8760FB402711112E003D915A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8760FB432711112E003D915A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8760FB4527111130003D915A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8760FB4827111130003D915A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8760FB4A27111130003D915A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8760FB5827111BE0003D915A /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		8760FB5A27111BF6003D915A /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
+		8760FB5C27111C09003D915A /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		8760FB5E27111C19003D915A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		8760FB6027111C4C003D915A /* UserListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
+		8760FB6227111C59003D915A /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
+		8760FB6427111C68003D915A /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		8760FB6627111C74003D915A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		8760FB6827111CB4003D915A /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		8760FB6C27111D2B003D915A /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		8760FB6E27111D4A003D915A /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
+		8760FB7027111D5B003D915A /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		8760FB7227111D6E003D915A /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		8760FB7427111D84003D915A /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		8760FB7627111D9D003D915A /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
+		8760FB7827113316003D915A /* GoogleService-Info (1).plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info (1).plist"; sourceTree = "<group>"; };
+		87A9C71C42AD59DA48489EC9 /* Pods_SevenMiles.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SevenMiles.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +69,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AD2563427A2EE661B4309D4 /* Pods_SevenMiles.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		05E5FABDF6A90B92AAC0DCB2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				87A9C71C42AD59DA48489EC9 /* Pods_SevenMiles.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		10DD25B062DAC4986EB5AB6D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5AD9E37F20FC127DCBB5F160 /* Pods-SevenMiles.debug.xcconfig */,
+				082AA6076905686DF6D41A99 /* Pods-SevenMiles.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		8760FB302711112E003D915A = {
 			isa = PBXGroup;
 			children = (
 				8760FB3B2711112E003D915A /* SevenMiles */,
 				8760FB3A2711112E003D915A /* Products */,
+				10DD25B062DAC4986EB5AB6D /* Pods */,
+				05E5FABDF6A90B92AAC0DCB2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +114,112 @@
 		8760FB3B2711112E003D915A /* SevenMiles */ = {
 			isa = PBXGroup;
 			children = (
-				8760FB3C2711112E003D915A /* AppDelegate.swift */,
-				8760FB3E2711112E003D915A /* SceneDelegate.swift */,
-				8760FB402711112E003D915A /* ViewController.swift */,
-				8760FB422711112E003D915A /* Main.storyboard */,
-				8760FB4527111130003D915A /* Assets.xcassets */,
-				8760FB4727111130003D915A /* LaunchScreen.storyboard */,
+				8760FB5527111B3E003D915A /* Managers */,
+				8760FB5427111B35003D915A /* ViewModels */,
+				8760FB5327111B0F003D915A /* Models */,
+				8760FB5127111AA6003D915A /* Controllers */,
+				8760FB5027111A8C003D915A /* Resources */,
+				8760FB5227111AB6003D915A /* Views */,
 				8760FB4A27111130003D915A /* Info.plist */,
+				875DFB7927114ADE008B56DA /* GoogleService-Info.plist */,
 			);
 			path = SevenMiles;
+			sourceTree = "<group>";
+		};
+		8760FB5027111A8C003D915A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8760FB4527111130003D915A /* Assets.xcassets */,
+				8760FB3C2711112E003D915A /* AppDelegate.swift */,
+				8760FB3E2711112E003D915A /* SceneDelegate.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8760FB5127111AA6003D915A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8760FB5727111B9F003D915A /* Other */,
+				8760FB5627111B93003D915A /* Core */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		8760FB5227111AB6003D915A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8760FB7827113316003D915A /* GoogleService-Info (1).plist */,
+				8760FB6B27111CE3003D915A /* Other */,
+				8760FB6A27111CCB003D915A /* StoryBoard */,
+				8760FB422711112E003D915A /* Main.storyboard */,
+				8760FB4727111130003D915A /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8760FB5327111B0F003D915A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8760FB5427111B35003D915A /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		8760FB5527111B3E003D915A /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				8760FB6E27111D4A003D915A /* APICaller.swift */,
+				8760FB7027111D5B003D915A /* StorageManager.swift */,
+				8760FB7227111D6E003D915A /* DatabaseManager.swift */,
+				8760FB7427111D84003D915A /* AuthenticationManager.swift */,
+				8760FB7627111D9D003D915A /* HapticsManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		8760FB5627111B93003D915A /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				8760FB402711112E003D915A /* HomeViewController.swift */,
+				8760FB5827111BE0003D915A /* CameraViewController.swift */,
+				8760FB5A27111BF6003D915A /* ExploreViewController.swift */,
+				8760FB5C27111C09003D915A /* NotificationViewController.swift */,
+				8760FB5E27111C19003D915A /* ProfileViewController.swift */,
+				8760FB6827111CB4003D915A /* TabBarViewController.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		8760FB5727111B9F003D915A /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				8760FB6027111C4C003D915A /* UserListViewController.swift */,
+				8760FB6227111C59003D915A /* SigninViewController.swift */,
+				8760FB6427111C68003D915A /* SignUpViewController.swift */,
+				8760FB6627111C74003D915A /* SettingsViewController.swift */,
+				8760FB6C27111D2B003D915A /* PostViewController.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		8760FB6A27111CCB003D915A /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = StoryBoard;
+			sourceTree = "<group>";
+		};
+		8760FB6B27111CE3003D915A /* Other */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +229,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8760FB4D27111130003D915A /* Build configuration list for PBXNativeTarget "SevenMiles" */;
 			buildPhases = (
+				55402ACEF213293070A8CE57 /* [CP] Check Pods Manifest.lock */,
 				8760FB352711112E003D915A /* Sources */,
 				8760FB362711112E003D915A /* Frameworks */,
 				8760FB372711112E003D915A /* Resources */,
+				8A3BF134952D0CEBBFFC5976 /* [CP] Embed Pods Frameworks */,
+				875DFB7B271153D8008B56DA /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -127,20 +285,96 @@
 			files = (
 				8760FB4927111130003D915A /* LaunchScreen.storyboard in Resources */,
 				8760FB4627111130003D915A /* Assets.xcassets in Resources */,
+				875DFB7A27114ADE008B56DA /* GoogleService-Info.plist in Resources */,
 				8760FB442711112E003D915A /* Main.storyboard in Resources */,
+				8760FB7927113316003D915A /* GoogleService-Info (1).plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		55402ACEF213293070A8CE57 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SevenMiles-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		875DFB7B271153D8008B56DA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
+		};
+		8A3BF134952D0CEBBFFC5976 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SevenMiles/Pods-SevenMiles-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SevenMiles/Pods-SevenMiles-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SevenMiles/Pods-SevenMiles-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8760FB352711112E003D915A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8760FB412711112E003D915A /* ViewController.swift in Sources */,
+				8760FB7727111D9D003D915A /* HapticsManager.swift in Sources */,
+				8760FB7327111D6E003D915A /* DatabaseManager.swift in Sources */,
+				8760FB412711112E003D915A /* HomeViewController.swift in Sources */,
+				8760FB6127111C4C003D915A /* UserListViewController.swift in Sources */,
+				8760FB6727111C74003D915A /* SettingsViewController.swift in Sources */,
+				8760FB6F27111D4A003D915A /* APICaller.swift in Sources */,
+				8760FB6D27111D2B003D915A /* PostViewController.swift in Sources */,
+				8760FB5927111BE0003D915A /* CameraViewController.swift in Sources */,
+				8760FB6927111CB4003D915A /* TabBarViewController.swift in Sources */,
+				8760FB5D27111C09003D915A /* NotificationViewController.swift in Sources */,
+				8760FB6527111C68003D915A /* SignUpViewController.swift in Sources */,
+				8760FB7527111D84003D915A /* AuthenticationManager.swift in Sources */,
+				8760FB5B27111BF6003D915A /* ExploreViewController.swift in Sources */,
+				8760FB5F27111C19003D915A /* ProfileViewController.swift in Sources */,
 				8760FB3D2711112E003D915A /* AppDelegate.swift in Sources */,
+				8760FB7127111D5B003D915A /* StorageManager.swift in Sources */,
 				8760FB3F2711112E003D915A /* SceneDelegate.swift in Sources */,
+				8760FB6327111C59003D915A /* SigninViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +518,7 @@
 		};
 		8760FB4E27111130003D915A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5AD9E37F20FC127DCBB5F160 /* Pods-SevenMiles.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -315,6 +550,7 @@
 		};
 		8760FB4F27111130003D915A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 082AA6076905686DF6D41A99 /* Pods-SevenMiles.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
