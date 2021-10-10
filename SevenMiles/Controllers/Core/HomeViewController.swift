@@ -51,6 +51,7 @@ class HomeViewController: UIViewController {
         view.addSubview(horizontalScrollView)
         setUpFeed()
         horizontalScrollView.contentOffset = CGPoint(x: view.width, y: 0)
+        setUpHeaderButtons()
     }
     
     // Give the ScrollView a frame
@@ -58,6 +59,22 @@ class HomeViewController: UIViewController {
         super.viewDidLayoutSubviews()
         horizontalScrollView.frame = view.bounds
     }
+    
+    // Header buttons
+    func setUpHeaderButtons() {
+        let titles = ["Following", "For You"]
+        let control = UISegmentedControl(items: titles)
+        control.selectedSegmentIndex = 1
+        control.addTarget(self, action: #selector(didChangeSegmentControl(_:)), for: .valueChanged)
+        navigationItem.titleView = control
+    }
+    
+    @objc private func didChangeSegmentControl(_ sender: UISegmentedControl) {
+        horizontalScrollView.setContentOffset(CGPoint(x: view.width * CGFloat(sender.selectedSegmentIndex),
+                                                      y: 0),
+                                              animated: true)
+    }
+    
     // Feed view
     private func setUpFeed() {
         horizontalScrollView.contentSize = CGSize(width: view.width * 2, height: view.height)
