@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2AD2563427A2EE661B4309D4 /* Pods_SevenMiles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87A9C71C42AD59DA48489EC9 /* Pods_SevenMiles.framework */; };
+		8708793D271352EF00278864 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8708793C271352EF00278864 /* PostModel.swift */; };
 		875DFB7A27114ADE008B56DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 875DFB7927114ADE008B56DA /* GoogleService-Info.plist */; };
 		875DFB7F2711F1FA008B56DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 875DFB7E2711F1FA008B56DA /* Main.storyboard */; };
 		875DFB8127121836008B56DA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875DFB8027121836008B56DA /* Extensions.swift */; };
@@ -36,6 +37,7 @@
 /* Begin PBXFileReference section */
 		082AA6076905686DF6D41A99 /* Pods-SevenMiles.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SevenMiles.release.xcconfig"; path = "Target Support Files/Pods-SevenMiles/Pods-SevenMiles.release.xcconfig"; sourceTree = "<group>"; };
 		5AD9E37F20FC127DCBB5F160 /* Pods-SevenMiles.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SevenMiles.debug.xcconfig"; path = "Target Support Files/Pods-SevenMiles/Pods-SevenMiles.debug.xcconfig"; sourceTree = "<group>"; };
+		8708793C271352EF00278864 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 		875DFB7927114ADE008B56DA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		875DFB7E2711F1FA008B56DA /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		875DFB8027121836008B56DA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 		8760FB5327111B0F003D915A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8708793C271352EF00278864 /* PostModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				8760FB7527111D84003D915A /* AuthenticationManager.swift in Sources */,
 				8760FB5B27111BF6003D915A /* ExploreViewController.swift in Sources */,
 				8760FB5F27111C19003D915A /* ProfileViewController.swift in Sources */,
+				8708793D271352EF00278864 /* PostModel.swift in Sources */,
 				8760FB3D2711112E003D915A /* AppDelegate.swift in Sources */,
 				8760FB7127111D5B003D915A /* StorageManager.swift in Sources */,
 				8760FB3F2711112E003D915A /* SceneDelegate.swift in Sources */,
