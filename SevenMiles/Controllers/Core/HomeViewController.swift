@@ -20,6 +20,15 @@ class HomeViewController: UIViewController {
         return scrollView
     }()
     
+    // UISegmentedControl global variable
+    let control: UISegmentedControl = {
+        let titles = ["Following", "For You"]
+        let control = UISegmentedControl(items: titles)
+        control.selectedSegmentIndex = 1
+        
+        return control
+    }()
+    
     let forYouPagingController = UIPageViewController(
         transitionStyle: .scroll,
         navigationOrientation: .vertical,
@@ -50,6 +59,7 @@ class HomeViewController: UIViewController {
         view.backgroundColor = .systemBackground
         view.addSubview(horizontalScrollView)
         setUpFeed()
+        horizontalScrollView.delegate = self
         horizontalScrollView.contentOffset = CGPoint(x: view.width, y: 0)
         setUpHeaderButtons()
     }
@@ -62,9 +72,9 @@ class HomeViewController: UIViewController {
     
     // Header buttons
     func setUpHeaderButtons() {
-        let titles = ["Following", "For You"]
-        let control = UISegmentedControl(items: titles)
-        control.selectedSegmentIndex = 1
+//        let titles = ["Following", "For You"]
+//        let control = UISegmentedControl(items: titles)
+//        control.selectedSegmentIndex = 1
         control.addTarget(self, action: #selector(didChangeSegmentControl(_:)), for: .valueChanged)
         navigationItem.titleView = control
     }
@@ -193,5 +203,16 @@ extension HomeViewController: UIPageViewControllerDataSource {
         }
         // ForYou page
         return forYouPosts
+    }
+}
+
+extension HomeViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.x == 0 || scrollView.contentOffset.x <= (view.width/2) {
+            control.selectedSegmentIndex = 0
+        }
+        else if scrollView.contentOffset.x > (view.width/2) {
+            control.selectedSegmentIndex = 1
+        }
     }
 }
