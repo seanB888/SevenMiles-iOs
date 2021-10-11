@@ -7,7 +7,14 @@
 
 import UIKit
 
+protocol PostViewControllerDelegate: AnyObject {
+    func postViewController(_ vc: PostViewController, didTapCommentButtonFor post: PostModel)
+}
+
 class PostViewController: UIViewController {
+    
+    weak var delegate: PostViewControllerDelegate?
+    
     // Used to pass into the controller
     var model: PostModel
     
@@ -41,9 +48,20 @@ class PostViewController: UIViewController {
         let label = UILabel()
         label.textAlignment = .left
         label.numberOfLines = 0
-        label.text = "At it again Boy!!! #Colored Folks #WildinOut #Black #Brown"
+        label.text = "At it again Boy!!!"
         label.font = .systemFont(ofSize: 22)
         label.textColor = .white
+        return label
+    }()
+    
+    // HashTag label
+    private let hashTagLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .left
+        label.numberOfLines = 1
+        label.text = "#Colored Folks #WildinOut #Black #Brown #coloredpeople"
+        label.font = .systemFont(ofSize: 12)
+        label.textColor = .systemPink
         return label
     }()
     
@@ -73,6 +91,7 @@ class PostViewController: UIViewController {
         
         // comments
         view.addSubview(captionLabel)
+        view.addSubview(hashTagLabel)
         
         
     }
@@ -94,6 +113,16 @@ class PostViewController: UIViewController {
             y: view.height - 30 - view.safeAreaInsets.bottom - labelSize.height - (tabBarController?.tabBar.height ?? 0),
             width: view.width - size - 12,
             height: labelSize.height)
+        
+        // working with the caption label and size
+        hashTagLabel.sizeToFit()
+        let hashTagSize = hashTagLabel.sizeThatFits(CGSize(width: view.width - size - 5, height: view.height))
+        hashTagLabel.frame =
+        CGRect(
+            x: 5,
+            y: view.height - 15 - view.safeAreaInsets.bottom - hashTagSize.height - (tabBarController?.tabBar.height ?? 0),
+            width: view.width - size - 12,
+            height: hashTagSize.height)
     }
     
     func setupButtons() {
@@ -115,7 +144,7 @@ class PostViewController: UIViewController {
     }
     
     @objc private func didTapCommentBtn() {
-        // Presents a comment tray
+        delegate?.postViewController(self, didTapCommentButtonFor: model)
     }
     
     @objc private func didTapShareBtn() {
