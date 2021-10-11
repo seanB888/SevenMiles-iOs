@@ -14,7 +14,7 @@ class HomeViewController: UIViewController {
     let horizontalScrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.bounces = false
-        scrollView.backgroundColor = .purple
+        // scrollView.backgroundColor = .purple
         scrollView.isPagingEnabled = true
         scrollView.showsHorizontalScrollIndicator = false
         return scrollView
@@ -25,6 +25,13 @@ class HomeViewController: UIViewController {
         let titles = ["Following", "For You"]
         let control = UISegmentedControl(items: titles)
         control.selectedSegmentIndex = 1
+        control.backgroundColor = .clear
+        /*
+         We want the background to be clear
+         the have the text change color.
+        // control.selectedSegmentTintColor = .clear
+         */
+        control.selectedSegmentTintColor = .systemPink
         
         return control
     }()

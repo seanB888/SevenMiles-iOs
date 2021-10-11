@@ -17,6 +17,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         window.rootViewController = TabBarViewController()
+        // making tabBar background clear
+        UITabBar.appearance().shadowImage = UIImage()
+        UITabBar.appearance().backgroundImage = UIImage()
+        UITabBar.appearance().isTranslucent = true
+        UITabBar.appearance().backgroundColor = .clear
         self.window = window
         self.window?.makeKeyAndVisible()
     }

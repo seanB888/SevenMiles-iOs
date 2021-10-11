@@ -6,9 +6,13 @@
 //
 
 import Foundation
+import UIKit
 
 struct PostModel {
     let identifier: String
+    
+    // an emutable property
+    var isLikedByCurrentUser = false
     
     // Used for debugging purposes
     static func mockModels() -> [PostModel] {
