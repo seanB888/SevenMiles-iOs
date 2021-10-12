@@ -21,8 +21,10 @@ class CommentsViewController: UIViewController {
     
     private let tableView: UITableView = {
         let tableView = UITableView()
-        tableView.register(UITableViewCell.self,
-        forCellReuseIdentifier: "cell")
+        tableView.register(
+            CommentTableViewCell.self,
+            forCellReuseIdentifier: CommentTableViewCell.indentifier
+        )
         return tableView
     }()
     
@@ -59,7 +61,7 @@ class CommentsViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        closeButton.frame = CGRect(x: view.width - 35, y: 10, width: 20, height: 20)
+        closeButton.frame = CGRect(x: view.width - 40, y: 10, width: 30, height: 30)
         tableView.frame = CGRect(x: 0, y: closeButton.bottom, width: view.width, height: view.width - closeButton.bottom)
     }
     
@@ -81,9 +83,23 @@ extension CommentsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let comment = comments[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell",
-        for: indexPath )
-        cell.textLabel?.text = comment.text
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: CommentTableViewCell.indentifier,
+            for: indexPath
+        ) as? CommentTableViewCell else {
+            return UITableViewCell()
+        }
+        cell.configure(with: comment)
         return cell
+    }
+    
+    // The height of the cells in the tableView
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+    
+    // make row not selectable
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
