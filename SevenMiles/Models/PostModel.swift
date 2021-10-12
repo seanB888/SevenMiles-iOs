@@ -11,6 +11,13 @@ import UIKit
 struct PostModel {
     let identifier: String
     
+    // Mockup user
+    let user = User(
+        username: "Nas",
+        profilePictureURL: nil,
+        indentifier: UUID().uuidString
+    )
+    
     // an emutable property
     var isLikedByCurrentUser = false
     
