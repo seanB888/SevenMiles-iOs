@@ -45,6 +45,7 @@
 		874AA6752714ECC600829F94 /* PostComments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostComments.swift; sourceTree = "<group>"; };
 		874AA6772714F04E00829F94 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		874AA6792715053C00829F94 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
+		874AA67B2716302E00829F94 /* bikelife.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = bikelife.mp4; sourceTree = "<group>"; };
 		875DFB7927114ADE008B56DA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		875DFB7E2711F1FA008B56DA /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		875DFB8027121836008B56DA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -137,6 +138,7 @@
 		8760FB5027111A8C003D915A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				874AA67B2716302E00829F94 /* bikelife.mp4 */,
 				8760FB4527111130003D915A /* Assets.xcassets */,
 				8760FB3C2711112E003D915A /* AppDelegate.swift */,
 				8760FB3E2711112E003D915A /* SceneDelegate.swift */,

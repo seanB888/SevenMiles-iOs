@@ -4,7 +4,7 @@
 //
 //  Created by SEAN BLAKE on 10/8/21.
 //
-
+import AVFoundation
 import UIKit
 
 protocol PostViewControllerDelegate: AnyObject {
@@ -77,6 +77,9 @@ class PostViewController: UIViewController {
         return label
     }()
     
+    // The video Player
+    var player: AVPlayer?
+    
     // MARK: - Init
     
     // the constructor "an initializer"
@@ -91,6 +94,8 @@ class PostViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // For the videoPlayer
+        configureVideo()
         
         let colors: [UIColor] = [
             .darkGray, .lightGray, .systemGray, .systemGray2, .systemGray3, .systemGray4, .systemGray5, .gray
@@ -100,7 +105,6 @@ class PostViewController: UIViewController {
         setupButtons()
         // Double top to like
         setUpDoubleTapToLike()
-        
         // comments
         view.addSubview(captionLabel)
         view.addSubview(hashTagLabel)
@@ -112,8 +116,9 @@ class PostViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        let size: CGFloat = 35
-        let yStart: CGFloat = view.height - (size * 4) - 30 - view.safeAreaInsets.bottom - (tabBarController?.tabBar.height ?? 0)
+        let size: CGFloat = 40
+        let tabBarHeight: CGFloat = (tabBarController?.tabBar.height ?? 0)
+        let yStart: CGFloat = view.height - (size * 4.0) - 30 - view.safeAreaInsets.bottom - tabBarHeight
         for (index, button) in [likeButton, commentButton, shareButton].enumerated() {
             button.frame = CGRect(x: view.width-size-10, y: yStart + (CGFloat(index) * 10) + (CGFloat(index) * size), width: size, height: size)
         }
@@ -145,6 +150,25 @@ class PostViewController: UIViewController {
             height: size
         )
         profileButton.layer.cornerRadius = size / 2
+    }
+    
+    // function for the videoPlayer
+    private func configureVideo() {
+        // To locate the video
+        guard let path = Bundle.main.path(forResource: "bikelife", ofType: ".mp4") else {
+            return
+        }
+        let url = URL(fileURLWithPath: path)
+        player = AVPlayer(url: url)
+        
+        // helps to add to a subView
+        let playerLayer = AVPlayerLayer(player: player)
+        playerLayer.frame = view.bounds
+        playerLayer.videoGravity = .resizeAspectFill
+        view.layer.addSublayer(playerLayer)
+        player?.volume = 1.0
+        
+        player?.play()
     }
     
     @objc func didTapProfileButton() {
