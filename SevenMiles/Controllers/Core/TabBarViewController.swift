@@ -27,7 +27,7 @@ class TabBarViewController: UITabBarController {
         )
         
         // home.title = "Home"
-        explore.title = "Explore"
+        // explore.title = "Explore"
         // camera.title = "Create"
         notification.title = "DM'S"
         profile.title = "Profile"

@@ -80,6 +80,8 @@ class PostViewController: UIViewController {
     // The video Player
     var player: AVPlayer?
     
+    private var playerDidFinishObserveer: NSObjectProtocol?
+    
     // MARK: - Init
     
     // the constructor "an initializer"
@@ -156,6 +158,7 @@ class PostViewController: UIViewController {
     private func configureVideo() {
         // To locate the video
         guard let path = Bundle.main.path(forResource: "bikelife", ofType: ".mp4") else {
+            print("bikelife not found")
             return
         }
         let url = URL(fileURLWithPath: path)
@@ -166,9 +169,21 @@ class PostViewController: UIViewController {
         playerLayer.frame = view.bounds
         playerLayer.videoGravity = .resizeAspectFill
         view.layer.addSublayer(playerLayer)
-        player?.volume = 1.0
-        
+        player?.volume = 0
         player?.play()
+        
+        guard let player = player else {
+            return
+        }
+        
+        playerDidFinishObserveer =  NotificationCenter.default.addObserver(
+            forName: .AVPlayerItemDidPlayToEndTime,
+            object: player.currentItem,
+            queue: .main
+            ) { _ in
+                player.seek(to: .zero)
+                player.play()
+            }
     }
     
     @objc func didTapProfileButton() {
