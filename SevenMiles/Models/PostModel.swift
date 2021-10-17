@@ -13,7 +13,7 @@ struct PostModel {
     
     // Mockup user
     let user = User(
-        username: "Nas",
+        username: "Sean",
         profilePictureURL: nil,
         indentifier: UUID().uuidString
     )

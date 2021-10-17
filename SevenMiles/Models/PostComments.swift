@@ -20,10 +20,10 @@ struct PostComment {
         var comments = [PostComment]()
         
         let text = [
-            "Where is the part",
+            "Where was this shot?",
             "Makin moves this weekend",
-            "OK, this is hot 🔥🔥🔥🔥🔥",
-            "Love your style",
+            "This is hot 🔥🔥🔥🔥🔥",
+            "Love this style",
             "Thats some slick ass shit 😂😂😂😂😂😂",
             "I was this years old when I saw this",
             "WTF, and I aint talkin Wednesday, Thursday or Friday"
