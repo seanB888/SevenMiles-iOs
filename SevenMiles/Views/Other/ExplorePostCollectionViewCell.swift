@@ -58,7 +58,8 @@ class ExplorePostCollectionViewCell: UICollectionViewCell {
     }
     
     func configure(with viewModel: ExplorePostsViewModel) {
-        thumbnailImageView.image = viewModel.thumbnailImage
         captionLabel.text = viewModel.caption
+        print(viewModel.thumbnailImage)
+        thumbnailImageView.image = viewModel.thumbnailImage
     }
 }
