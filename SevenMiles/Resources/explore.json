@@ -2,26 +2,32 @@
   "banners": [
     {
       "id": "nature",
-      "image": "banner1",
-      "title": "Nature",
+      "image": "banner2",
+      "title": "Hot Import Nights",
       "action": "hashtag"
     },
     {
-      "id": "jason_derulo",
-      "image": "banner2",
-      "title": "Jason Derulo",
-      "action": "user"
+      "id": "foods",
+      "image": "banner1",
+      "title": "WalkersWood",
+      "action": "hashtag"
     },
     {
-      "id": "newyorkcity",
+      "id": "hawaii",
       "image": "banner3",
-      "title": "New York City",
+      "title": "Hawaiian Airlines",
       "action": "hashtag"
     },
     {
       "id": "2131224214",
       "image": "banner4",
-      "title": "Savage Love Dance",
+      "title": "Widebody M4 Bi Turbo",
+      "action": "post"
+    },
+    {
+      "id": "2131224215",
+      "image": "banner5",
+      "title": "Widebody M4 G82",
       "action": "post"
     }
   ],
@@ -34,111 +40,117 @@
     {
       "id": "2",
       "image": "trending2",
-      "caption": "Australia trip 2020!",
+      "caption": "Whats your name?",
     },
     {
       "id": "3",
       "image": "trending3",
-      "caption": "What do you actually want!",
+      "caption": "2 steppin!",
     },
     {
       "id": "4",
       "image": "trending4",
-      "caption": "Follow on instagram!",
+      "caption": "Bike life",
     },
     {
       "id": "5",
       "image": "trending5",
-      "caption": "Finding more friends!",
+      "caption": "Nuggets",
     },
     {
       "id": "6",
       "image": "trending6",
-      "caption": "Day trip to the beach!",
+      "caption": "Drip",
     },
     {
       "id": "7",
       "image": "trending7",
-      "caption": "Merry Christmas to all!",
+      "caption": "Kicks",
     },
     {
       "id": "8",
       "image": "trending8",
-      "caption": "This tiktok app course is amazing!",
+      "caption": "Swag Chicks!",
     },
     {
       "id": "9",
       "image": "trending9",
-      "caption": "For you page is rigged!",
+      "caption": "Hot Girl Summer!",
     },
     {
       "id": "10",
       "image": "trending10",
-      "caption": "Try the WAP dance!",
+      "caption": "RIP Rappers",
     }
   ],
   "creators": [
     {
       "id": "user1",
-      "image": "creator1",
-      "username": "kanyewest",
+      "image": "creator4",
+      "username": "SeanB",
       "followers_count": 1200
     },
     {
       "id": "user2",
-      "image": "creator2",
-      "username": "kimkardashian",
-      "followers_count": 1200
+      "image": "creator5",
+      "username": "MikaB",
+      "followers_count": 88884444
     },
     {
       "id": "user3",
-      "image": "creator3",
-      "username": "toiley",
-      "followers_count": 1200
+      "image": "creator6",
+      "username": "RiRi-B",
+      "followers_count": 88882222
     },
     {
       "id": "user4",
-      "image": "creator4",
-      "username": "charlidamelio",
+      "image": "creator1",
+      "username": "lisaLolleePop",
       "followers_count": 1200
     },
     {
       "id": "user5",
-      "image": "creator5",
-      "username": "addisonrae",
+      "image": "creator2",
+      "username": "Nas",
       "followers_count": 1200
+    },
+    {
+      "id": "user6",
+      "image": "creator3",
+      "username": "toiley",
+      "followers_count": 88884444
     }
   ],
   "recentPosts": [
     {
       "id": "1",
       "image": "trending1",
-      "caption": "2020 has been crazy!",
+      "caption": "2020 has been crazy!"
     },
     {
       "id": "2",
       "image": "trending2",
-      "caption": "Australia trip 2020!",
+      "caption": "Australia trip 2020!"
     },
     {
       "id": "3",
       "image": "trending4",
-      "caption": "What do you actually want!",
+      "caption": "What do you actually want!"
     },
     {
       "id": "4",
       "image": "trending5",
-      "caption": "Follow on instagram!",
+      "caption": "Follow on instagram!"
     },
     {
       "id": "5",
       "image": "trending6",
-      "caption": "Finding more friends!",
+      "caption": "Finding more friends!"
     },
     {
       "id": "6",
       "image": "trending8",
-      "caption": "Day trip to the beach!",
+      "caption": "Day trip to the beach!"
     }
   ],
   "hashtags": [
@@ -160,6 +172,26 @@
     {
       "image": "tag.circle",
       "tag": "summertime",
+      "count": 400
+    },
+    {
+      "image": "tag.circle",
+      "tag": "forzarelease",
+      "count": 400
+    },
+    {
+      "image": "tag.circle",
+      "tag": "sneakercon",
+      "count": 400
+    },
+    {
+      "image": "tag.circle",
+      "tag": "superfly",
+      "count": 400
+    },
+    {
+      "image": "tag.circle",
+      "tag": "bikelife",
       "count": 400
     }
   ],

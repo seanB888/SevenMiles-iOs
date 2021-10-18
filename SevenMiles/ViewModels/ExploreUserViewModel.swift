@@ -11,7 +11,7 @@ import UIKit
 // MARK: - The Explore ViewModels
 // User
 struct ExploreUserViewModel {
-    let profilePictureURL: URL?
+    let profilePicture: UIImage?
     let username: String
     let followerCount: Int /// To show how many people are following them
     let handler: (() -> Void)
