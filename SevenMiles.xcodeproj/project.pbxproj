@@ -26,7 +26,7 @@
 		8760FB5D27111C09003D915A /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760FB5C27111C09003D915A /* NotificationViewController.swift */; };
 		8760FB5F27111C19003D915A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760FB5E27111C19003D915A /* ProfileViewController.swift */; };
 		8760FB6127111C4C003D915A /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760FB6027111C4C003D915A /* UserListViewController.swift */; };
-		8760FB6327111C59003D915A /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760FB6227111C59003D915A /* SigninViewController.swift */; };
+		8760FB6327111C59003D915A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760FB6227111C59003D915A /* SignInViewController.swift */; };
 		8760FB6527111C68003D915A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760FB6427111C68003D915A /* SignUpViewController.swift */; };
 		8760FB6727111C74003D915A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760FB6627111C74003D915A /* SettingsViewController.swift */; };
 		8760FB6927111CB4003D915A /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760FB6827111CB4003D915A /* TabBarViewController.swift */; };
@@ -75,7 +75,7 @@
 		8760FB5C27111C09003D915A /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		8760FB5E27111C19003D915A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		8760FB6027111C4C003D915A /* UserListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
-		8760FB6227111C59003D915A /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
+		8760FB6227111C59003D915A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		8760FB6427111C68003D915A /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		8760FB6627111C74003D915A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		8760FB6827111CB4003D915A /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -246,8 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				8760FB6027111C4C003D915A /* UserListViewController.swift */,
-				8760FB6227111C59003D915A /* SigninViewController.swift */,
-				8760FB6427111C68003D915A /* SignUpViewController.swift */,
+				8767A455271F422B0068705F /* Authenticaton */,
 				8760FB6627111C74003D915A /* SettingsViewController.swift */,
 				8760FB6C27111D2B003D915A /* PostViewController.swift */,
 				874AA67327147B0200829F94 /* CommentsViewController.swift */,
@@ -274,6 +273,15 @@
 				8783A7312719A55A00C842E7 /* ExploreHashtagCollectionViewCell.swift */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		8767A455271F422B0068705F /* Authenticaton */ = {
+			isa = PBXGroup;
+			children = (
+				8760FB6227111C59003D915A /* SignInViewController.swift */,
+				8760FB6427111C68003D915A /* SignUpViewController.swift */,
+			);
+			path = Authenticaton;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -445,7 +453,7 @@
 				8760FB3D2711112E003D915A /* AppDelegate.swift in Sources */,
 				8760FB7127111D5B003D915A /* StorageManager.swift in Sources */,
 				8760FB3F2711112E003D915A /* SceneDelegate.swift in Sources */,
-				8760FB6327111C59003D915A /* SigninViewController.swift in Sources */,
+				8760FB6327111C59003D915A /* SignInViewController.swift in Sources */,
 				8799E0D227177C1400505AAC /* ExploreSectionType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
