@@ -491,4 +491,9 @@ extension ExploreViewController: ExploreManagerDelegate {
     func pushViewController(_ vc: UIViewController) {
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    func didTapHashTag(_ hashtag: String) {
+        searchBar.text = hashtag
+        searchBar.becomeFirstResponder()
+    }
 }
