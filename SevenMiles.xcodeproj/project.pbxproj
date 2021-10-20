@@ -35,6 +35,8 @@
 		8760FB7327111D6E003D915A /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760FB7227111D6E003D915A /* DatabaseManager.swift */; };
 		8760FB7527111D84003D915A /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760FB7427111D84003D915A /* AuthenticationManager.swift */; };
 		8760FB7727111D9D003D915A /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760FB7627111D9D003D915A /* HapticsManager.swift */; };
+		8767A457271F6AA30068705F /* AuthField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8767A456271F6AA30068705F /* AuthField.swift */; };
+		8767A459271F837F0068705F /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8767A458271F837F0068705F /* AuthButton.swift */; };
 		8769CB2E271BC2C700EBC24D /* explore.json in Resources */ = {isa = PBXBuildFile; fileRef = 8769CB2D271BC2C600EBC24D /* explore.json */; };
 		8769CB30271BC3FE00EBC24D /* ExploreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8769CB2F271BC3FE00EBC24D /* ExploreManager.swift */; };
 		8783A72C2719A47700C842E7 /* ExploreBannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8783A72B2719A47700C842E7 /* ExploreBannerCollectionViewCell.swift */; };
@@ -84,6 +86,8 @@
 		8760FB7227111D6E003D915A /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		8760FB7427111D84003D915A /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		8760FB7627111D9D003D915A /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
+		8767A456271F6AA30068705F /* AuthField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthField.swift; sourceTree = "<group>"; };
+		8767A458271F837F0068705F /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
 		8769CB2D271BC2C600EBC24D /* explore.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = explore.json; sourceTree = "<group>"; };
 		8769CB2F271BC3FE00EBC24D /* ExploreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreManager.swift; sourceTree = "<group>"; };
 		8783A72B2719A47700C842E7 /* ExploreBannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreBannerCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -280,6 +284,8 @@
 			children = (
 				8760FB6227111C59003D915A /* SignInViewController.swift */,
 				8760FB6427111C68003D915A /* SignUpViewController.swift */,
+				8767A456271F6AA30068705F /* AuthField.swift */,
+				8767A458271F837F0068705F /* AuthButton.swift */,
 			);
 			path = Authenticaton;
 			sourceTree = "<group>";
@@ -420,6 +426,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8767A459271F837F0068705F /* AuthButton.swift in Sources */,
+				8767A457271F6AA30068705F /* AuthField.swift in Sources */,
 				8760FB7727111D9D003D915A /* HapticsManager.swift in Sources */,
 				874AA6762714ECC600829F94 /* PostComments.swift in Sources */,
 				8760FB7327111D6E003D915A /* DatabaseManager.swift in Sources */,
