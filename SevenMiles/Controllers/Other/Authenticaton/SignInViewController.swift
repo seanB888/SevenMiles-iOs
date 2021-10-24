@@ -27,11 +27,11 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     private let passwordField = AuthField(type: .password)
     
     private let signInButton = AuthButton(type: .signIn, title: nil)
-    private let forgetPassword = AuthButton(type: .plain, title: "Forgot Your Password")
     private let signUpButton = AuthButton(type: .signUp, title: "New User? Create Account")
+    private let forgetPassword = AuthButton(type: .plain, title: "Forgot Your Password")
     
     // MARK: - Lifecycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -54,7 +54,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.width, height: 50))
         toolBar.items = [
             UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil),
-            UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(didTapkeyboardDone))
+            // UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(didTapkeyboardDone))
         ]
         toolBar.sizeToFit()
         emailField.inputAccessoryView = toolBar
@@ -79,14 +79,13 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         
         emailField.frame = CGRect(x: 20, y: logoImageView.bottom+20, width: view.width-40, height: 55)
         passwordField.frame = CGRect(x: 20, y: emailField.bottom+15, width: view.width-40, height: 55)
-        
         signInButton.frame = CGRect(x: 20, y: passwordField.bottom+20, width: view.width-40, height: 55)
         signUpButton.frame = CGRect(x: 20, y: signInButton.bottom+20, width: view.width-40, height: 55)
         forgetPassword.frame = CGRect(x: 20, y: signUpButton.bottom+20, width: view.width-40, height: 55)
         
     }
     
-    // Actions
+    //MARK: - Actions
     @objc func didTapSignIn() {
         didTapkeyboardDone()
         
@@ -99,14 +98,21 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
                   let alert = UIAlertController(title: "Yu messup, check dat again", message: "Di Password or the Username wrong. Fix up dat and try again!", preferredStyle: .alert)
                   alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
                   present(alert, animated: true)
-            return
+                  return
               }
         
-        AuthManager.shared.signIn(with: email, password: password) { loggedIn in
-            if loggedIn {
-                // dismiss sign in
-            } else {
-                // show error
+        AuthManager.shared.signIn(with: email, password: password) { [weak self] result in
+            DispatchQueue.main.async{
+                switch result {
+                case .success:
+                    self?.dismiss(animated: true, completion: nil)
+                   
+                case .failure(let error):
+                    print(error)
+                    let alert = UIAlertController(title: "Yu messup, check dat again", message: "Yu need fi check the email or password.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+                    self?.present(alert, animated: true)
+                }
             }
         }
     }
@@ -120,7 +126,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     
     @objc func didTapForgetPassword() {
         didTapkeyboardDone()
-        guard let url = URL(string: "https://5fourlab.com") else {
+        guard let url = URL(string: "https://guhso.com") else {
             return
         }
         let vc = SFSafariViewController(url: url)
@@ -131,5 +137,5 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         emailField.resignFirstResponder()
         passwordField.resignFirstResponder()
     }
-
+    
 }
