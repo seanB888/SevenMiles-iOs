@@ -23,9 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         // used to signout the user everytime the app launches
-        AuthManager.shared.signOut { _ in
-            
-        }
+//        AuthManager.shared.signOut { _ in
+//            
+//        }
         
         return true
     }

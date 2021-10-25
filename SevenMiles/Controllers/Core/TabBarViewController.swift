@@ -59,6 +59,12 @@ class TabBarViewController: UITabBarController {
         let nav2 = UINavigationController(rootViewController: explore)
         let nav3 = UINavigationController(rootViewController: notification)
         let nav4 = UINavigationController(rootViewController: profile)
+        let cameraNav = UINavigationController(rootViewController: camera)
+        
+        // Hides NavBar on camera view
+        cameraNav.navigationBar.backgroundColor = .clear
+        cameraNav.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        cameraNav.navigationBar.shadowImage = UIImage()
         
         // making the image transparent
         nav1.navigationBar.backgroundColor = .clear
@@ -71,6 +77,6 @@ class TabBarViewController: UITabBarController {
         nav3.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "mail"), tag: 4)
         nav4.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "person"), tag: 5)
         
-        setViewControllers([nav1, nav2, camera, nav3, nav4], animated: false)
+        setViewControllers([nav1, nav2, cameraNav, nav3, nav4], animated: false)
     }
 }

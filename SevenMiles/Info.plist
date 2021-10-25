@@ -21,5 +21,9 @@
 			</array>
 		</dict>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Please allow access to record videos.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Please allow access to record videos.</string>
 </dict>
 </plist>
