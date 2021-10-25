@@ -51,6 +51,7 @@
 		8799E0D627177FE400505AAC /* ExplorePostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8799E0D527177FE400505AAC /* ExplorePostsViewModel.swift */; };
 		8799E0D82717864600505AAC /* ExploreHashtagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8799E0D72717864600505AAC /* ExploreHashtagViewModel.swift */; };
 		8799E0DA2717871B00505AAC /* ExploreUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8799E0D92717871B00505AAC /* ExploreUserViewModel.swift */; };
+		87C6ACBE2726C2B500C435DF /* CaptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C6ACBD2726C2B500C435DF /* CaptionViewController.swift */; };
 		87C74EA32725E6C60002D0D3 /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C74EA22725E6C60002D0D3 /* RecordButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +104,7 @@
 		8799E0D72717864600505AAC /* ExploreHashtagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreHashtagViewModel.swift; sourceTree = "<group>"; };
 		8799E0D92717871B00505AAC /* ExploreUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreUserViewModel.swift; sourceTree = "<group>"; };
 		87A9C71C42AD59DA48489EC9 /* Pods_SevenMiles.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SevenMiles.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		87C6ACBD2726C2B500C435DF /* CaptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionViewController.swift; sourceTree = "<group>"; };
 		87C74EA22725E6C60002D0D3 /* RecordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -256,6 +258,7 @@
 				8760FB6627111C74003D915A /* SettingsViewController.swift */,
 				8760FB6C27111D2B003D915A /* PostViewController.swift */,
 				874AA67327147B0200829F94 /* CommentsViewController.swift */,
+				87C6ACBD2726C2B500C435DF /* CaptionViewController.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -445,6 +448,7 @@
 				8760FB5927111BE0003D915A /* CameraViewController.swift in Sources */,
 				8769CB30271BC3FE00EBC24D /* ExploreManager.swift in Sources */,
 				8760FB6927111CB4003D915A /* TabBarViewController.swift in Sources */,
+				87C6ACBE2726C2B500C435DF /* CaptionViewController.swift in Sources */,
 				8799E0D027177BCA00505AAC /* ExploreCell.swift in Sources */,
 				874AA67427147B0200829F94 /* CommentsViewController.swift in Sources */,
 				8799E0D427177F5D00505AAC /* ExploreBannerViewModel.swift in Sources */,

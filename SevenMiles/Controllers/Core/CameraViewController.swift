@@ -26,7 +26,7 @@ class CameraViewController: UIViewController {
         let view =  UIView()
         view.clipsToBounds = true
         view.backgroundColor = .black
-         
+        
         return view
     }()
     
@@ -37,7 +37,7 @@ class CameraViewController: UIViewController {
     private var previewLayer: AVPlayerLayer?
     
     var recordedVideoURL: URL?
-
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -46,11 +46,16 @@ class CameraViewController: UIViewController {
         view.backgroundColor = .systemBackground
         setupCamera()
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(didTapCloseBTN))
+        // Navigation Next button
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(didTapNext))
         
         // record button
         view.addSubview(recordingButton)
+        // record button acction
+        recordingButton.addTarget(self, action: #selector(didTapRecord), for: .touchUpInside)
+        
     }
-     
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         cameraView.frame = view.bounds
@@ -65,7 +70,7 @@ class CameraViewController: UIViewController {
     }
     
     // MARK: - Actions
-    
+    // Record Button
     @objc private func didTapRecord() {
         if captureOutput.isRecording {
             // stop recording
@@ -79,12 +84,10 @@ class CameraViewController: UIViewController {
             ).first else {
                 return
             }
-            
+            // recorded file
             url.appendPathComponent("video.mov")
-            
             // toggle record on/off
             recordingButton.toggle(for: .recording)
-            
             // Delete if video exist already
             try? FileManager.default.removeItem(at: url)
             
@@ -92,6 +95,7 @@ class CameraViewController: UIViewController {
         }
     }
     
+    // Close Button
     @objc func didTapCloseBTN() {
         navigationItem.rightBarButtonItem = nil
         recordingButton.isHidden = false
@@ -107,10 +111,7 @@ class CameraViewController: UIViewController {
         
     }
     
-    @objc func didTapNext() {
-        
-    }
-    
+    // MARK: - Setup Camera Function
     func setupCamera() {
         // Add devices
         if let audioDevice = AVCaptureDevice.default(for: .audio) {
@@ -150,7 +151,7 @@ class CameraViewController: UIViewController {
 
 extension CameraViewController: AVCaptureFileOutputRecordingDelegate {
     func fileOutput(_ output: AVCaptureFileOutput, didFinishRecordingTo outputFileURL: URL, from connections: [AVCaptureConnection], error: Error?) {
-         
+        
         guard error == nil else {
             let alert = UIAlertController(title: "YO!!!", message: "Something went wrong.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
@@ -159,9 +160,6 @@ extension CameraViewController: AVCaptureFileOutputRecordingDelegate {
         }
         
         recordedVideoURL = outputFileURL
-        
-        // Navigation Next button
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(didTapNext))
         
         // print("Finish recording video: \(outputFileURL.absoluteString )")
         // layer ontop of camera view
@@ -175,5 +173,10 @@ extension CameraViewController: AVCaptureFileOutputRecordingDelegate {
         recordingButton.isHidden = true
         cameraView.layer.addSublayer(previewLayer)
         previewLayer.player?.play()
+    }
+    
+    @objc func didTapNext() {
+        // push the caption controller
+        
     }
 }
