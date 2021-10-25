@@ -51,6 +51,7 @@
 		8799E0D627177FE400505AAC /* ExplorePostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8799E0D527177FE400505AAC /* ExplorePostsViewModel.swift */; };
 		8799E0D82717864600505AAC /* ExploreHashtagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8799E0D72717864600505AAC /* ExploreHashtagViewModel.swift */; };
 		8799E0DA2717871B00505AAC /* ExploreUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8799E0D92717871B00505AAC /* ExploreUserViewModel.swift */; };
+		87C74EA32725E6C60002D0D3 /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C74EA22725E6C60002D0D3 /* RecordButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,6 +103,7 @@
 		8799E0D72717864600505AAC /* ExploreHashtagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreHashtagViewModel.swift; sourceTree = "<group>"; };
 		8799E0D92717871B00505AAC /* ExploreUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreUserViewModel.swift; sourceTree = "<group>"; };
 		87A9C71C42AD59DA48489EC9 /* Pods_SevenMiles.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SevenMiles.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		87C74EA22725E6C60002D0D3 /* RecordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,6 +277,7 @@
 				8783A72D2719A51100C842E7 /* ExplorePostCollectionViewCell.swift */,
 				8783A72F2719A52700C842E7 /* ExploreUserCollectionViewCell.swift */,
 				8783A7312719A55A00C842E7 /* ExploreHashtagCollectionViewCell.swift */,
+				87C74EA22725E6C60002D0D3 /* RecordButton.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 				875DFB8127121836008B56DA /* Extensions.swift in Sources */,
 				8799E0CE27177B9200505AAC /* ExplorerSection.swift in Sources */,
 				8760FB6527111C68003D915A /* SignUpViewController.swift in Sources */,
+				87C74EA32725E6C60002D0D3 /* RecordButton.swift in Sources */,
 				8799E0D627177FE400505AAC /* ExplorePostsViewModel.swift in Sources */,
 				8760FB7527111D84003D915A /* AuthenticationManager.swift in Sources */,
 				8760FB5B27111BF6003D915A /* ExploreViewController.swift in Sources */,
