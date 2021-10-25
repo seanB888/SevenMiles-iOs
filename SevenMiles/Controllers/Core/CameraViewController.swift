@@ -86,8 +86,10 @@ class CameraViewController: UIViewController {
             }
             // recorded file
             url.appendPathComponent("video.mov")
+            
             // toggle record on/off
             recordingButton.toggle(for: .recording)
+            
             // Delete if video exist already
             try? FileManager.default.removeItem(at: url)
             
@@ -160,6 +162,9 @@ extension CameraViewController: AVCaptureFileOutputRecordingDelegate {
         }
         
         recordedVideoURL = outputFileURL
+        
+        // Navigation Next button
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(didTapNext))
         
         // print("Finish recording video: \(outputFileURL.absoluteString )")
         // layer ontop of camera view
