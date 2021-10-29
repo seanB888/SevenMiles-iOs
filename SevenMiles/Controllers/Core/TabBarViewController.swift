@@ -65,6 +65,7 @@ class TabBarViewController: UITabBarController {
         cameraNav.navigationBar.backgroundColor = .clear
         cameraNav.navigationBar.setBackgroundImage(UIImage(), for: .default)
         cameraNav.navigationBar.shadowImage = UIImage()
+        cameraNav.navigationBar.tintColor = .systemOrange /// <-- MAKES TEXT ON CAPTIONVIEW WHITE
         
         // making the image transparent
         nav1.navigationBar.backgroundColor = .clear
@@ -76,6 +77,7 @@ class TabBarViewController: UITabBarController {
         camera.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "plus.square"), tag: 3)
         nav3.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "mail"), tag: 4)
         nav4.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "person"), tag: 5)
+        
         
         setViewControllers([nav1, nav2, cameraNav, nav3, nav4], animated: false)
     }

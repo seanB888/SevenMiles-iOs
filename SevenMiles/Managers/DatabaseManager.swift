@@ -68,7 +68,7 @@ final class DatabaseManager {
         }
     }
     
-    public func insertPost(fileName: String, completion: @escaping (Bool) -> Void) {
+    public func insertPost(fileName: String, caption: String, completion: @escaping (Bool) -> Void) {
         /// Get the current users username
         guard let username = UserDefaults.standard.string(forKey: "username") else {
             return
@@ -81,8 +81,13 @@ final class DatabaseManager {
                 return
             }
             
-            if var posts = value["posts"] as? [String] {
-                posts.append(fileName)
+            let newEntry = [
+                "name": fileName,
+                "caption": caption
+            ]
+            
+            if var posts = value["posts"] as? [[String: Any]] {
+                posts.append(newEntry)
                 value["posts"] = posts
                 self?.database.child("user").child(username).setValue(value) { error, _ in
                     guard error == nil else {
@@ -93,7 +98,7 @@ final class DatabaseManager {
                 }
             }
             else {
-                value["posts"] = [fileName]
+                value["posts"] = [newEntry]
                 self?.database.child("user").child(username).setValue(value) { error, _ in
                     guard error == nil else {
                         completion(false)

@@ -12,6 +12,15 @@ class CaptionViewController: UIViewController {
     
     let videoURL: URL
     
+    private let captionTextView: UITextView = {
+        let textView = UITextView()
+        textView.contentInset = UIEdgeInsets(top: 3, left: 3, bottom: 3, right: 3)
+        textView.backgroundColor = .secondarySystemBackground
+        textView.layer.cornerRadius = 8
+        textView.layer.masksToBounds = true
+        return textView
+    }()
+    
     init(videoURL: URL) {
         self.videoURL = videoURL
         super.init(nibName: nil, bundle: nil)
@@ -26,24 +35,33 @@ class CaptionViewController: UIViewController {
         title = "Add Caption"
         view.backgroundColor = .systemBackground
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Post", style: .done, target: self, action: #selector(didTapPost))
+        view.addSubview(captionTextView)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        captionTextView.frame = CGRect(x: 5, y: view.safeAreaInsets.top+5, width: view.width, height: 150).integral
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        captionTextView.becomeFirstResponder()
     }
     
     @objc private func didTapPost() {
+        captionTextView.resignFirstResponder()
+        let caption = captionTextView.text ?? ""
          // Generate a unique video name base on the id
         let newVideoName = StorageManager.shared.generateVideoName()
         
-        ProgressHUD.show("Di video a post. Hold tight!")/// <--- PROGRESSHUD CALL
+        ProgressHUD.show("Di video a post. Hold tight!")/// <--- PROGRESSHUD CALLf
         
         // Upload the video
         StorageManager.shared.uploadVideoURL(from:  videoURL, fileName: newVideoName) { [ weak self ] success in
             DispatchQueue.main.async {
                 if success {
                     // Update the database
-                    DatabaseManager.shared.insertPost(fileName: newVideoName) { databaseUpdated in
+                    DatabaseManager.shared.insertPost(fileName: newVideoName, caption: caption) { databaseUpdated in
                         if databaseUpdated {
                             ProgressHUD.dismiss()/// <--- PROGRESSHUD CALL
                             HapticsManager.shared.vibrate(for: .success)/// <--- HAPTICSMANAGER CALL
