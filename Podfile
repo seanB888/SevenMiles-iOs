@@ -11,6 +11,6 @@ target 'SevenMiles' do
   pod 'Firebase/Analytics'
   pod 'Firebase/Crashlytics'
 
-  #pod 'SDWebImage'
+  pod 'ProgressHUD'
 
 end

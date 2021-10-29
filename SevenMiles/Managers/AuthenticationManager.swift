@@ -41,6 +41,14 @@ final class AuthManager {
                 }
                 return
             }
+            // query database for the username
+            DatabaseManager.shared.getUsername(for: email) { username in
+                if let username = username {
+                    UserDefaults.standard.setValue(username, forKey: "username")
+                    print("This is the username: \(username)")
+                }
+            }
+            
             // Successful sign in
             completion(.success(email))
         }

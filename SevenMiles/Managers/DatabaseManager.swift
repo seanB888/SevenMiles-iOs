@@ -23,7 +23,7 @@ final class DatabaseManager {
          - create a root user
          */
         // Get current User
-        database.child("users").observeSingleEvent(of: .value) { [weak self] snapshot in
+        database.child("user").observeSingleEvent(of: .value) { [weak self] snapshot in
             guard var usersDictionary = snapshot.value as? [String: Any] else {
                 // create users root node
                 self?.database.child("user").setValue(
@@ -42,13 +42,66 @@ final class DatabaseManager {
             }
             usersDictionary[username] = ["email": email]
             // save new users object
-            self?.database.child("users").setValue(usersDictionary, withCompletionBlock: { error, _ in
+            self?.database.child("user").setValue(usersDictionary, withCompletionBlock: { error, _ in
                 guard error == nil else {
                     completion(false)
                     return
                 }
                 completion(true)
             })
+        }
+    }
+    
+    public func getUsername(for email: String, completion: @escaping (String?) -> Void) {
+        database.child("user").observeSingleEvent(of: .value) { snapshot in
+            guard let users = snapshot.value as? [String: [String: Any]] else {
+                completion(nil)
+                return
+            }
+            
+            for (username, value) in users {
+                if value["email"] as? String == email {
+                    completion(username)
+                    break
+                }
+            }
+        }
+    }
+    
+    public func insertPost(fileName: String, completion: @escaping (Bool) -> Void) {
+        /// Get the current users username
+        guard let username = UserDefaults.standard.string(forKey: "username") else {
+            return
+        }
+        
+        /// Get that node
+        database.child("user").child(username).observeSingleEvent(of: .value) { [weak self] snapshot in
+            guard var value = snapshot.value as? [String: Any] else {
+                completion(false)
+                return
+            }
+            
+            if var posts = value["posts"] as? [String] {
+                posts.append(fileName)
+                value["posts"] = posts
+                self?.database.child("user").child(username).setValue(value) { error, _ in
+                    guard error == nil else {
+                        completion(false)
+                        return
+                    }
+                    completion(true)
+                }
+            }
+            else {
+                value["posts"] = [fileName]
+                self?.database.child("user").child(username).setValue(value) { error, _ in
+                    guard error == nil else {
+                        completion(false)
+                        return
+                    }
+                    completion(true)
+                }
+            }
         }
     }
     
