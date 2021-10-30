@@ -110,6 +110,11 @@ final class DatabaseManager {
         }
     }
     
+    /// FOR FETCHING NOTIFICATIONS
+    public func getNotifications (completion: @escaping ([String]) -> Void) {
+        completion([])
+    }
+    
     public func getAllUsers(completion: ([String]) -> Void) {
         
     }

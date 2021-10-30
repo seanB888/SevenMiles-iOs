@@ -27,17 +27,20 @@ class NotificationViewController: UIViewController, UITableViewDelegate, UITable
     
     // Spinner
     private let spinner: UIActivityIndicatorView = {
-       let spinner = UIActivityIndicatorView()
-        
+        let spinner = UIActivityIndicatorView()
+        spinner.tintColor = .systemOrange
+        spinner.startAnimating()
         return spinner
     }()
+    
+    var notifications = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(noNotificationLabel)
         view.addSubview(tableView)
         view.backgroundColor = .systemBackground
-        
+        view.addSubview(spinner)
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -49,15 +52,36 @@ class NotificationViewController: UIViewController, UITableViewDelegate, UITable
         tableView.frame = view.bounds
         noNotificationLabel.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
         noNotificationLabel.center = view.center
+        spinner.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        spinner.center = view.center
     }
     
     // to fecth notification
     func fetchNotification() {
-        
+        DatabaseManager.shared.getNotifications { [weak self] notifications in
+            DispatchQueue.main.async {
+                self?.spinner.stopAnimating()
+                self?.spinner.isHidden = true
+                self?.notifications = notifications
+                self?.updateUI()
+            }
+        }
+    }
+    
+    func updateUI() {
+        if notifications.isEmpty {
+            noNotificationLabel.isHidden = false
+            tableView.isHidden = true
+        } else {
+            noNotificationLabel.isHidden = true
+            tableView.isHidden = false
+        }
+        tableView.reloadData()
     }
     
     // Table View
     func numberOfSections(in tableView: UITableView) -> Int {
+        // return notifications.count
         return 1
     }
     
