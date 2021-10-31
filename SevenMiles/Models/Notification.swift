@@ -7,13 +7,13 @@
 
 import Foundation
  
-struct Noification {
+struct Notification {
     let text: String
-    let date: Date()
+    let date: Date
     
-    static func mockData() -> [Notification]{
+    static func mockData() -> [Notification] {
         return Array(0...100).compactMap({
-            Notification(text: "Wha Gwaan World!! \($0)", date: Date)
+            Notification(text: "A wha a gwaan: \($0)", date: Date())
         })
     }
 }
