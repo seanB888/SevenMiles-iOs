@@ -118,7 +118,7 @@ class NotificationViewController: UIViewController, UITableViewDelegate, UITable
                     for: indexPath
                 )
             }
-            cell.configure(with: postName)
+            cell.configure(with: postName, model: model)
             return cell
         case .userFollow(let username):
             guard let cell = tableView.dequeueReusableCell(
@@ -130,7 +130,7 @@ class NotificationViewController: UIViewController, UITableViewDelegate, UITable
                     for: indexPath
                 )
             }
-            cell.configure(with: username)
+            cell.configure(with: username, model: model)
             return cell
         case .postComment(let postName):
             guard let cell = tableView.dequeueReusableCell(
@@ -142,8 +142,13 @@ class NotificationViewController: UIViewController, UITableViewDelegate, UITable
                     for: indexPath
                 )
             }
-            cell.configure(with: postName)
+            cell.configure(with: postName, model: model)
             return cell
         }
+    }
+    
+    /// Fixed height for the Rows
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
 }

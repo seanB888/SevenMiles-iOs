@@ -1,14 +1,14 @@
 //
-//  NotificationsPostLikeTableViewCell.swift
-//  NotificationsPostLikeTableViewCell
+//  NotificationsPostCommentTableViewCell.swift
+//  NotificationsPostCommentTableViewCell
 //
 //  Created by SEAN BLAKE on 10/31/21.
 //
 
 import UIKit
 
-class NotificationsPostLikeTableViewCell: UITableViewCell {
-    static let identifier = "NotificationsPostLikeTableViewCell"
+class NotificationsPostCommentTableViewCell: UITableViewCell {
+    static let identifier = "NotificationsPostCommentTableViewCell"
     
     /// avatar
     private let postThumbnailImageView: UIImageView = {
@@ -87,7 +87,6 @@ class NotificationsPostLikeTableViewCell: UITableViewCell {
     }
     
     func configure(with postFileName: String, model: Notification) {
-        
         postThumbnailImageView.image = UIImage(named: "test")
         label.text = model.text
         dateLabel.text = .date(with: model.date)

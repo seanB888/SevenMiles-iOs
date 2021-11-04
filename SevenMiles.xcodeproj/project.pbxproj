@@ -285,9 +285,9 @@
 			isa = PBXGroup;
 			children = (
 				874AA6792715053C00829F94 /* CommentTableViewCell.swift */,
+				87C74EA22725E6C60002D0D3 /* RecordButton.swift */,
 				87BAA085272F8E010096E7A0 /* Auth */,
 				87BAA086272F8E2C0096E7A0 /* Explore */,
-				87C74EA22725E6C60002D0D3 /* RecordButton.swift */,
 				87BAA08B272F8F5C0096E7A0 /* Notifications */,
 			);
 			path = Other;
