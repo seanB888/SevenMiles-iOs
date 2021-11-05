@@ -225,14 +225,17 @@ extension NotificationViewController: NotificationsPostLikeTableViewCellDelegate
     }
 }
 
-extension NotificationViewController: NotificationsPostLikeTableViewCellDelegate {
-    func notificationsPostLikeTableViewCell(_ cell: NotificationsPostCommentTableViewCell, didTapPostWith identifier: String) {
+extension NotificationViewController: NotificationsPostCommentTableViewCellDelegate {
+    func notificationsPostCommentTableViewCell(_ cell: NotificationsPostCommentTableViewCell, didTapPostWith identifier: String) {
         openPost(with: identifier)
     }
 }
 
 extension NotificationViewController {
-    func openPost(with ID: String) {
+    func openPost(with identifier: String) {
         ///resolve post model from database
+        let vc = PostViewController(model: PostModel(identifier: identifier))
+        vc.title = "Video"
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

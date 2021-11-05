@@ -67,6 +67,8 @@ class TabBarViewController: UITabBarController {
         cameraNav.navigationBar.shadowImage = UIImage()
         cameraNav.navigationBar.tintColor = .systemOrange /// <-- MAKES TEXT ON CAPTIONVIEW WHITE
         
+        nav3.navigationBar.tintColor = .label
+        
         // making the image transparent
         nav1.navigationBar.backgroundColor = .clear
         nav1.navigationBar.setBackgroundImage(UIImage(), for: .default)
@@ -78,6 +80,14 @@ class TabBarViewController: UITabBarController {
         nav3.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "mail"), tag: 4)
         nav4.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "person"), tag: 5)
         
+        /// To get a minimal looking backButton
+        if #available(iOS 14.0, *) {
+            nav1.navigationItem.backButtonDisplayMode = .minimal
+            nav2.navigationItem.backButtonDisplayMode = .minimal
+            nav3.navigationItem.backButtonDisplayMode = .minimal
+            nav4.navigationItem.backButtonDisplayMode = .minimal
+            cameraNav.navigationItem.backButtonDisplayMode = .minimal
+        }
         
         setViewControllers([nav1, nav2, cameraNav, nav3, nav4], animated: false)
     }
