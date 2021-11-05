@@ -58,8 +58,23 @@ class NotificationViewController: UIViewController, UITableViewDelegate, UITable
         view.addSubview(spinner)
         tableView.delegate = self
         tableView.dataSource = self
+        let control = UIRefreshControl()
+        control.addTarget(self, action: #selector(didPullToRefresh(_:)), for: .valueChanged)
+        tableView.refreshControl = control
         
         fetchNotification()
+    }
+    
+    @objc func didPullToRefresh(_ sender: UIRefreshControl) {
+        sender.beginRefreshing()
+        /// This is the refresher for the Notification view
+        DatabaseManager.shared.getNotifications { [weak self] notifications in
+            DispatchQueue.main.asyncAfter(deadline: .now()+3) {
+                self?.notifications = notifications
+                self?.tableView.reloadData()
+                sender.endRefreshing()
+            }
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -145,6 +160,37 @@ class NotificationViewController: UIViewController, UITableViewDelegate, UITable
             cell.configure(with: postName, model: model)
             return cell
         }
+    }
+    
+    /// For hidding Row
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        guard editingStyle == .delete else {
+            return
+        }
+        let model =  notifications[indexPath.row]
+        model.isHidden = true
+        
+        DatabaseManager.shared.markNotificationAsHidden(notificationID: model.identifier) { [weak self] success in
+            DispatchQueue.main.async {
+                if success {
+                    self?.notifications = self?.notifications.filter({$0.isHidden == false}) ?? []
+                    
+                    tableView.beginUpdates()
+                    tableView.deleteRows(at: [indexPath], with: .none)
+                    tableView.endUpdates()
+                }
+            }
+        }
+        
+        
     }
     
     /// Fixed height for the Rows
