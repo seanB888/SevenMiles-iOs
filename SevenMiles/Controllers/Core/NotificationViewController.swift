@@ -133,6 +133,7 @@ class NotificationViewController: UIViewController, UITableViewDelegate, UITable
                     for: indexPath
                 )
             }
+            cell.delegate = self
             cell.configure(with: postName, model: model)
             return cell
         case .userFollow(let username):
@@ -146,7 +147,6 @@ class NotificationViewController: UIViewController, UITableViewDelegate, UITable
                 )
             }
             cell.delegate = self
-            
             cell.configure(with: username, model: model)
             return cell
         case .postComment(let postName):
@@ -159,6 +159,7 @@ class NotificationViewController: UIViewController, UITableViewDelegate, UITable
                     for: indexPath
                 )
             }
+            cell.delegate = self
             cell.configure(with: postName, model: model)
             return cell
         }
@@ -215,5 +216,23 @@ extension NotificationViewController: NotificationsUserFollowTableViewCellDelega
             indentifier: "123"))
         vc.title = username.uppercased()
         navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+extension NotificationViewController: NotificationsPostLikeTableViewCellDelegate {
+    func notificationsPostLikeTableViewCell(_ cell: NotificationsPostLikeTableViewCell, didTapPostWith identifier: String) {
+        openPost(with: identifier)
+    }
+}
+
+extension NotificationViewController: NotificationsPostLikeTableViewCellDelegate {
+    func notificationsPostLikeTableViewCell(_ cell: NotificationsPostCommentTableViewCell, didTapPostWith identifier: String) {
+        openPost(with: identifier)
+    }
+}
+
+extension NotificationViewController {
+    func openPost(with ID: String) {
+        ///resolve post model from database
     }
 }
