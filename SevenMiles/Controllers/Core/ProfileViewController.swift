@@ -112,5 +112,39 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
               ) as? ProfileHeaderCollectionReusableView else {
             return UICollectionReusableView()
         }
+        header.delegate = self
+        return header
     }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: view.width, height: 300)
+    }
+}
+
+extension ProfileViewController: ProfileHeaderCollectionReusableViewDelegate {
+    func profileHeaderCollectionReusableView(_ header: ProfileHeaderCollectionReusableView,
+                                             didTapPrimaryButtonWith viewModel: String) {
+        /// get current username
+        guard let currentUsername = UserDefaults.standard.string(forKey: "username") else {
+            return
+        }
+        
+        if self.user.username == currentUsername {
+            // Edit User profile
+        }
+        else {
+            // Follow or unfollow current user profile that you are viewing
+        }
+    }
+    
+    func profileHeaderCollectionReusableView(_ header: ProfileHeaderCollectionReusableView,
+                                             didTapFollowersButtonWith viewModel: String) {
+        
+    }
+    
+    func profileHeaderCollectionReusableView(_ header: ProfileHeaderCollectionReusableView,
+                                             didTapFollowingButtonWith viewModel: String) {
+        
+    }
+    
+    
 }
