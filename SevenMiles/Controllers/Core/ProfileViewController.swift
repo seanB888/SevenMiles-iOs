@@ -8,6 +8,19 @@
 import UIKit
 
 class ProfileViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    var isCurrentUserProfile: Bool {
+        if let username = UserDefaults.standard.string(forKey: "username") {
+            return user.username.lowercased() == username.lowercased()
+        }
+        return false
+    }
+    
+    enum PicturePickerType {
+        case camera
+        case photoLibrary
+    }
+    
     // brings in user info from the database
     let user: User
     
@@ -113,10 +126,11 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
             return UICollectionReusableView()
         }
         header.delegate = self
-        let viewModel = ProfileHeaderViewModel(avatarImageURL: nil,
-                                               followerCount: 3000000,
-                                               followingCount: 200,
-                                               isFollowing: false
+        let viewModel = ProfileHeaderViewModel(
+            avatarImageURL: nil,
+            followerCount: 3000000,
+            followingCount: 200,
+            isFollowing: isCurrentUserProfile ? nil : false
         )
         header.configure(with: viewModel)
         return header
@@ -152,5 +166,48 @@ extension ProfileViewController: ProfileHeaderCollectionReusableViewDelegate {
         
     }
     
+    func profileHeaderCollectionReusableView(_ header: ProfileHeaderCollectionReusableView,
+                                             didTapAvatarFor viewModel: ProfileHeaderViewModel) {
+        guard isCurrentUserProfile else {
+            return
+        }
+        let actionSheet = UIAlertController(title: "Profile Picture", message: nil, preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: nil))
+        actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { _ in
+            DispatchQueue.main.async {
+                self.presentProfilePicturePicker(type: .camera)
+            }
+        }))
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
+            DispatchQueue.main.async {
+                self.presentProfilePicturePicker(type: .photoLibrary)
+            }
+        }))
+        
+        present(actionSheet, animated: true)
+    }
     
+    func presentProfilePicturePicker(type: PicturePickerType) {
+        let picker = UIImagePickerController()
+        picker.sourceType = type == .camera ? .camera : .photoLibrary
+        picker.delegate = self
+        picker.allowsEditing = true
+        present(picker, animated: true)
+    }
+}
+
+extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+        guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
+            return
+        }
+        
+        ///Upload and update UI
+        
+    }
 }
