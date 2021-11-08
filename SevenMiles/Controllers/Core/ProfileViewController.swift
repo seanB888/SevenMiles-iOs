@@ -113,6 +113,12 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
             return UICollectionReusableView()
         }
         header.delegate = self
+        let viewModel = ProfileHeaderViewModel(avatarImageURL: nil,
+                                               followerCount: 3000000,
+                                               followingCount: 200,
+                                               isFollowing: false
+        )
+        header.configure(with: viewModel)
         return header
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
@@ -122,7 +128,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
 
 extension ProfileViewController: ProfileHeaderCollectionReusableViewDelegate {
     func profileHeaderCollectionReusableView(_ header: ProfileHeaderCollectionReusableView,
-                                             didTapPrimaryButtonWith viewModel: String) {
+                                             didTapPrimaryButtonWith viewModel: ProfileHeaderViewModel) {
         /// get current username
         guard let currentUsername = UserDefaults.standard.string(forKey: "username") else {
             return
@@ -137,12 +143,12 @@ extension ProfileViewController: ProfileHeaderCollectionReusableViewDelegate {
     }
     
     func profileHeaderCollectionReusableView(_ header: ProfileHeaderCollectionReusableView,
-                                             didTapFollowersButtonWith viewModel: String) {
+                                             didTapFollowersButtonWith viewModel: ProfileHeaderViewModel) {
         
     }
     
     func profileHeaderCollectionReusableView(_ header: ProfileHeaderCollectionReusableView,
-                                             didTapFollowingButtonWith viewModel: String) {
+                                             didTapFollowingButtonWith viewModel: ProfileHeaderViewModel) {
         
     }
     

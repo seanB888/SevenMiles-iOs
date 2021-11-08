@@ -12,5 +12,6 @@ target 'SevenMiles' do
   pod 'Firebase/Crashlytics'
 
   pod 'ProgressHUD'
+  pod 'SDWebImage', '~> 5.12'
 
 end
