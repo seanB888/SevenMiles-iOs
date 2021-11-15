@@ -28,7 +28,7 @@ class HomeViewController: UIViewController {
         control.backgroundColor = .clear
         /*
          We want the background to be clear
-         the have the text change color.
+         to have the text change color.
         // control.selectedSegmentTintColor = .clear
          */
         control.selectedSegmentTintColor = .systemPink

@@ -24,7 +24,7 @@ class ExplorePostCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.numberOfLines = 2
         label.font = .systemFont(ofSize: 18, weight: .semibold)
-        label.textColor = .systemPink
+        label.textColor = .systemOrange
         return label
     }()
     
@@ -59,7 +59,7 @@ class ExplorePostCollectionViewCell: UICollectionViewCell {
     
     func configure(with viewModel: ExplorePostsViewModel) {
         captionLabel.text = viewModel.caption
-        print(viewModel.thumbnailImage)
+        //print(viewModel.thumbnailImage)
         thumbnailImageView.image = viewModel.thumbnailImage
     }
 }

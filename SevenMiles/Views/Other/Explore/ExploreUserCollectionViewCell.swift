@@ -24,8 +24,9 @@ class ExploreUserCollectionViewCell: UICollectionViewCell {
     private let usernameLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
-        label.font = .systemFont(ofSize: 18, weight: .light)
+        label.font = .systemFont(ofSize: 18, weight: .regular)
         label.textAlignment = .center
+        label.textColor = .systemOrange
         return label
     }()
     

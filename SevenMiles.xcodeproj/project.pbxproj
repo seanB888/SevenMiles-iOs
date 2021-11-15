@@ -42,6 +42,7 @@
 		8767A459271F837F0068705F /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8767A458271F837F0068705F /* AuthButton.swift */; };
 		8769CB2E271BC2C700EBC24D /* explore.json in Resources */ = {isa = PBXBuildFile; fileRef = 8769CB2D271BC2C600EBC24D /* explore.json */; };
 		8769CB30271BC3FE00EBC24D /* ExploreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8769CB2F271BC3FE00EBC24D /* ExploreManager.swift */; };
+		8771AC06274208C600EF02A3 /* VerifiyIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8771AC05274208C600EF02A3 /* VerifiyIcon.swift */; };
 		8783A72C2719A47700C842E7 /* ExploreBannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8783A72B2719A47700C842E7 /* ExploreBannerCollectionViewCell.swift */; };
 		8783A72E2719A51100C842E7 /* ExplorePostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8783A72D2719A51100C842E7 /* ExplorePostCollectionViewCell.swift */; };
 		8783A7302719A52700C842E7 /* ExploreUserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8783A72F2719A52700C842E7 /* ExploreUserCollectionViewCell.swift */; };
@@ -101,6 +102,7 @@
 		8767A458271F837F0068705F /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
 		8769CB2D271BC2C600EBC24D /* explore.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = explore.json; sourceTree = "<group>"; };
 		8769CB2F271BC3FE00EBC24D /* ExploreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreManager.swift; sourceTree = "<group>"; };
+		8771AC05274208C600EF02A3 /* VerifiyIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiyIcon.swift; sourceTree = "<group>"; };
 		8783A72B2719A47700C842E7 /* ExploreBannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreBannerCollectionViewCell.swift; sourceTree = "<group>"; };
 		8783A72D2719A51100C842E7 /* ExplorePostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorePostCollectionViewCell.swift; sourceTree = "<group>"; };
 		8783A72F2719A52700C842E7 /* ExploreUserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreUserCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				8799E0CF27177BCA00505AAC /* ExploreCell.swift */,
 				8799E0D127177C1400505AAC /* ExploreSectionType.swift */,
 				873065AB272DDDB9007BC809 /* Notification.swift */,
+				8771AC05274208C600EF02A3 /* VerifiyIcon.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				8799E0CE27177B9200505AAC /* ExplorerSection.swift in Sources */,
 				87BAA08A272F8EE10096E7A0 /* NotificationsPostCommentTableViewCell.swift in Sources */,
 				8760FB6527111C68003D915A /* SignUpViewController.swift in Sources */,
+				8771AC06274208C600EF02A3 /* VerifiyIcon.swift in Sources */,
 				87C74EA32725E6C60002D0D3 /* RecordButton.swift in Sources */,
 				8799E0D627177FE400505AAC /* ExplorePostsViewModel.swift in Sources */,
 				8760FB7527111D84003D915A /* AuthenticationManager.swift in Sources */,

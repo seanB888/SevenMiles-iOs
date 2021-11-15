@@ -54,24 +54,24 @@ class ExploreViewController: UIViewController {
             )
         )
         
-        // MARK: - Trending Post
+        // MARK: - POPULAR
+        ///Popular
+        sections.append(
+            ExploreSection(
+                type: .popular,
+                cells: ExploreManager.shared.getExplorePopularPosts().compactMap({
+                    return ExploreCell.post(viewModel: $0)
+                })
+            )
+        )
+        
+        // MARK: - Hashtags
         ///Trending Hashtags
         sections.append(
             ExploreSection(
                 type: .trendingPosts,
                 cells: ExploreManager.shared.getExploreHashtags().compactMap({
                     return ExploreCell.hashtag(viewModel: $0)
-                })
-            )
-        )
-        
-        // MARK: - Users
-        /// Users
-        sections.append(
-            ExploreSection(
-                type: .users,
-                cells: ExploreManager.shared.getExploreCreators().compactMap({
-                    return ExploreCell.user(viewModel: $0)
                 })
             )
         )
@@ -98,13 +98,13 @@ class ExploreViewController: UIViewController {
             )
         )
         
-        // MARK: - POPULAR
-        ///Popular
+        // MARK: - Users
+        /// Users
         sections.append(
             ExploreSection(
-                type: .popular,
-                cells: ExploreManager.shared.getExplorePopularPosts().compactMap({
-                    return ExploreCell.post(viewModel: $0)
+                type: .users,
+                cells: ExploreManager.shared.getExploreCreators().compactMap({
+                    return ExploreCell.user(viewModel: $0)
                 })
             )
         )
@@ -289,7 +289,7 @@ extension ExploreViewController {
                 )
             )
             
-            item.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 4, bottom: 4, trailing: 4)
+            item.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 0, bottom: 4, trailing: 0)
             
             // Group
             let group = NSCollectionLayoutGroup.horizontal(

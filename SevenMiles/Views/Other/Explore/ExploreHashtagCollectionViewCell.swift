@@ -22,7 +22,8 @@ class ExploreHashtagCollectionViewCell: UICollectionViewCell {
     private let hashtagLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
-        label.font = .systemFont(ofSize: 20, weight: .semibold)
+        label.font = .systemFont(ofSize: 18, weight: .semibold)
+        label.textColor = .systemOrange
         return label
     }()
     
@@ -32,7 +33,7 @@ class ExploreHashtagCollectionViewCell: UICollectionViewCell {
         contentView.clipsToBounds = true
         contentView.addSubview(iconImageView)
         contentView.addSubview(hashtagLabel)
-        contentView.backgroundColor = .systemGray5
+        //contentView.backgroundColor = .systemGray5
     }
     
     required init?(coder: NSCoder) {
@@ -41,7 +42,7 @@ class ExploreHashtagCollectionViewCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        let iconSize: CGFloat = contentView.height/3
+        let iconSize: CGFloat = contentView.height/2
         iconImageView.frame = CGRect(x: 10, y: (contentView.height - iconSize) / 2, width: iconSize, height: iconSize).integral
         
         hashtagLabel.sizeToFit()

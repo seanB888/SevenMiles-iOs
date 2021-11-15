@@ -23,8 +23,8 @@ class ExploreBannerCollectionViewCell: UICollectionViewCell {
     private let label: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
-        label.font = .systemFont(ofSize: 25, weight: .bold)
-        label.textColor = .systemPink
+        label.font = .systemFont(ofSize: 28, weight: .bold)
+        label.textColor = .white
         return label
     }()
     
@@ -34,7 +34,7 @@ class ExploreBannerCollectionViewCell: UICollectionViewCell {
         contentView.clipsToBounds = true
         contentView.addSubview(label)
         contentView.addSubview(imageView)
-        contentView.layer.cornerRadius = 15
+        // contentView.layer.cornerRadius = 15
         contentView.layer.masksToBounds = true
     }
     
