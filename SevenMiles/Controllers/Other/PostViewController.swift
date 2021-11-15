@@ -32,7 +32,7 @@ class PostViewController: UIViewController {
     
     private let commentButton: UIButton = {
         let button = UIButton()
-        button.setBackgroundImage(UIImage(systemName: "plus.message.fill"), for: .normal)
+        button.setBackgroundImage(UIImage(systemName: "bubble.left"), for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
         button.tintColor = .white
         return button
@@ -40,7 +40,7 @@ class PostViewController: UIViewController {
     
     private let shareButton: UIButton = {
         let button = UIButton()
-        button.setBackgroundImage(UIImage(systemName: "square.and.arrow.up"), for: .normal)
+        button.setBackgroundImage(UIImage(systemName: "arrowshape.turn.up.forward.fill"), for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
         button.tintColor = .white
         return button
