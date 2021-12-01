@@ -381,7 +381,7 @@ extension ExploreViewController {
                 )
             )
             
-            item.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 4, bottom: 4, trailing: 4)
+            item.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 0, bottom: 4, trailing: 0)
             
             // Group
             let group = NSCollectionLayoutGroup.vertical(

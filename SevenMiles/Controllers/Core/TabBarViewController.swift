@@ -42,10 +42,14 @@ class TabBarViewController: UITabBarController {
         let explore = ExploreViewController()
         let camera = CameraViewController()
         let notification = NotificationViewController()
+        var urlString: String?
+        if let cachedUrlString = UserDefaults.standard.string(forKey: "profile_picture_url") {
+            urlString = cachedUrlString
+        }
         let profile = ProfileViewController(
             user: User(
                 username: UserDefaults.standard.string(forKey: "username")?.uppercased() ?? "Me",
-                profilePictureURL: nil,
+                profilePictureURL: URL(string: urlString ?? ""),
                 indentifier: UserDefaults.standard.string(forKey: "username")?.lowercased() ?? ""
             )
         )
@@ -77,7 +81,7 @@ class TabBarViewController: UITabBarController {
         nav1.navigationBar.shadowImage = UIImage()
         
         nav1.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "house"), tag: 1)
-        nav2.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "safari"), tag: 2)
+        nav2.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "magnifyingglass"), tag: 2)
         camera.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "plus.square"), tag: 3)
         nav3.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "mail"), tag: 4)
         nav4.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "person"), tag: 5)

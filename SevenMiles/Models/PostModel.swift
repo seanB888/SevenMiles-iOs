@@ -10,13 +10,9 @@ import UIKit
 
 struct PostModel {
     let identifier: String
-    
-    // Mockup user
-    let user = User(
-        username: "Sean",
-        profilePictureURL: nil,
-        indentifier: UUID().uuidString
-    )
+    let user: User
+    var fileName: String = ""
+    var captionName: String = ""
     
     // an emutable property
     var isLikedByCurrentUser = false
@@ -25,9 +21,20 @@ struct PostModel {
     static func mockModels() -> [PostModel] {
         var posts = [PostModel]()
         for _ in 0...100 {
-            let post = PostModel(identifier: UUID().uuidString)
+            let post = PostModel(
+                identifier: UUID().uuidString,
+                user: User(
+                    username: "Sean",
+                    profilePictureURL: nil,
+                    indentifier: UUID().uuidString
+                )
+            )
             posts.append(post)
         }
         return posts
+    }
+    
+    var videoChildPath: String {
+        return "videos/\(user.username.lowercased())/\(fileName)"
     }
 }

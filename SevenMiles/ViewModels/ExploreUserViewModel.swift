@@ -14,5 +14,6 @@ struct ExploreUserViewModel {
     let profilePicture: UIImage?
     let username: String
     let followerCount: Int /// To show how many people are following them
+    let followingMe: String /// test purpose
     let handler: (() -> Void)
 }

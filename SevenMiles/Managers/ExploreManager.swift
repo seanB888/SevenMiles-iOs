@@ -73,7 +73,8 @@ final class ExploreManager {
             ExploreUserViewModel(
                 profilePicture: UIImage(named: model.image),
                 username: model.username,
-                followerCount: model.followers_count
+                followerCount: model.followers_count,
+                followingMe: model.followingMe
             ) { [ weak self ] in
                 // code...
                 DispatchQueue.main.async {
@@ -94,7 +95,7 @@ final class ExploreManager {
         
         return exploreData.hashtags.compactMap({ model in
             ExploreHashtagViewModel(
-                text: "#" + model.tag,
+                text: model.tag,
                 icon: UIImage(systemName: model.image),
                 count: model.count
             ) { [ weak self ] in
@@ -121,7 +122,12 @@ final class ExploreManager {
                 // code... to fetch post by id on firebase
                 DispatchQueue.main.async {
                     let postID = model.id
-                    let vc = PostViewController(model: PostModel(identifier: postID))
+                    let vc = PostViewController(
+                        model: PostModel(identifier: postID, user: User(
+                            username: "Sean",
+                            profilePictureURL: nil,
+                            indentifier: UUID().uuidString
+                        )))
                     self?.delegate?.pushViewController(vc)
                 }
             }
@@ -142,7 +148,11 @@ final class ExploreManager {
                 // Soon add some code...
                 DispatchQueue.main.async {
                     let postID = model.id
-                    let vc = PostViewController(model: PostModel(identifier: postID))
+                    let vc = PostViewController(model: PostModel(identifier: postID, user: User(
+                        username: "Sean",
+                        profilePictureURL: nil,
+                        indentifier: UUID().uuidString
+                    )))
                     self?.delegate?.pushViewController(vc)
                 }
             }
@@ -163,7 +173,11 @@ final class ExploreManager {
                 // Soon add some code...
                 DispatchQueue.main.async {
                     let postID = model.id
-                    let vc = PostViewController(model: PostModel(identifier: postID))
+                    let vc = PostViewController(model: PostModel(identifier: postID, user: User(
+                        username: "Sean",
+                        profilePictureURL: nil,
+                        indentifier: UUID().uuidString
+                    )))
                     self?.delegate?.pushViewController(vc)
                 }
             }
@@ -226,5 +240,6 @@ struct Creator: Codable {
     let image: String
     let username: String
     let followers_count: Int
+    let followingMe: String
 }
 

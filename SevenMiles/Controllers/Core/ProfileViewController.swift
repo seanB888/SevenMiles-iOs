@@ -4,7 +4,7 @@
 //
 //  Created by SEAN BLAKE on 10/8/21.
 //
-
+import ProgressHUD
 import UIKit
 
 class ProfileViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -13,7 +13,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         if let username = UserDefaults.standard.string(forKey: "username") {
             return user.username.lowercased() == username.lowercased()
         }
-        return false
+        return true
     }
     
     enum PicturePickerType {
@@ -22,7 +22,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     // brings in user info from the database
-    let user: User
+    var user: User
     
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -35,9 +35,12 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
             withReuseIdentifier: ProfileHeaderCollectionReusableView.identifier
         )
-        collection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collection.register(PostCollectionViewCell.self,
+                            forCellWithReuseIdentifier: PostCollectionViewCell.identifier)
         return collection
     }()
+    
+    private var posts = [PostModel]()
     
     // MARK: - Init
     
@@ -69,11 +72,21 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
                 action: #selector(didTapSettings)
             )
         }
+        fetchPosts()
     }
     
     @objc func didTapSettings() {
         let vc = SettingsViewController()
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func fetchPosts() {
+        DatabaseManager.shared.getPosts(for: user) { [weak self] postModels in
+            DispatchQueue.main.async {
+                self?.posts = postModels
+                self?.collectionView.reloadData()
+            }
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -84,17 +97,20 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     // MARK: - CollectionView
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        return posts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .systemOrange
+        let postModel = posts[indexPath.row]
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: PostCollectionViewCell.identifier,
+            for: indexPath
+        )
+        as? PostCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        cell.configure(with: postModel)
         return cell
     }
     
@@ -127,8 +143,9 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         }
         header.delegate = self
         let viewModel = ProfileHeaderViewModel(
-            avatarImageURL: nil,
-            followerCount: 3000000,
+            avatarImageURL: user.profilePictureURL,
+            followingMe: "3.5B",
+            followerCount: 3000,
             followingCount: 200,
             isFollowing: isCurrentUserProfile ? nil : false
         )
@@ -171,14 +188,15 @@ extension ProfileViewController: ProfileHeaderCollectionReusableViewDelegate {
         guard isCurrentUserProfile else {
             return
         }
+        /// actionsheet
         let actionSheet = UIAlertController(title: "Profile Picture", message: nil, preferredStyle: .actionSheet)
-        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: nil))
-        actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { _ in
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
             DispatchQueue.main.async {
                 self.presentProfilePicturePicker(type: .camera)
             }
         }))
-        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
+        actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { _ in
             DispatchQueue.main.async {
                 self.presentProfilePicturePicker(type: .photoLibrary)
             }
@@ -206,8 +224,29 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
         guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
             return
         }
-        
+        ProgressHUD.show("Uploading")
         ///Upload and update UI
+        StorageManager.shared.uploadProfilePicture(with: image) { [weak self] result in
+            DispatchQueue.main.async {
+                guard let strongSelf = self else {
+                    return
+                }
+                switch result {
+                case .success(let downloadURL):
+                    UserDefaults.standard.setValue(downloadURL.absoluteString, forKey: "profile_picture_url")
+                    
+                    strongSelf.user = User(
+                        username: strongSelf.user.username,
+                        profilePictureURL: downloadURL,
+                        indentifier: strongSelf.user.username
+                    )
+                    ProgressHUD.showSuccess("Updated!")
+                    strongSelf.collectionView.reloadData()
+                case .failure:
+                    ProgressHUD.showError("Failure to update the profile picture.")
+                }
+            }
+        }
         
     }
 }

@@ -24,6 +24,8 @@ class HomeViewController: UIViewController {
     let control: UISegmentedControl = {
         let titles = ["Following", "For You"]
         let control = UISegmentedControl(items: titles)
+        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemOrange]
+        let titleTextAttributes2 = [NSAttributedString.Key.foregroundColor: UIColor.black]
         control.selectedSegmentIndex = 1
         control.backgroundColor = .clear
         /*
@@ -31,7 +33,9 @@ class HomeViewController: UIViewController {
          to have the text change color.
         // control.selectedSegmentTintColor = .clear
          */
-        control.selectedSegmentTintColor = .systemPink
+        control.selectedSegmentTintColor = .systemOrange
+        control.setTitleTextAttributes(titleTextAttributes, for: .normal)
+        control.setTitleTextAttributes(titleTextAttributes2, for: .selected)
         
         return control
     }()

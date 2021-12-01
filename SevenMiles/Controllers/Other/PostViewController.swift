@@ -32,7 +32,7 @@ class PostViewController: UIViewController {
     
     private let commentButton: UIButton = {
         let button = UIButton()
-        button.setBackgroundImage(UIImage(systemName: "bubble.left"), for: .normal)
+        button.setBackgroundImage(UIImage(systemName: "plus.bubble.fill"), for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
         button.tintColor = .white
         return button
@@ -60,8 +60,8 @@ class PostViewController: UIViewController {
         let label = UILabel()
         label.textAlignment = .left
         label.numberOfLines = 0
-        label.text = "At it again Boy!!!"
-        label.font = .systemFont(ofSize: 22)
+        label.text = "2021 Why We Ride"
+        label.font = .systemFont(ofSize: 24)
         label.textColor = .white
         return label
     }()
@@ -71,9 +71,9 @@ class PostViewController: UIViewController {
         let label = UILabel()
         label.textAlignment = .left
         label.numberOfLines = 1
-        label.text = "#Colored Folks #WildinOut #Black #Brown #coloredpeople"
+        label.text = "#bikelife #WildinOut #Black #Brown #coloredpeople"
         label.font = .systemFont(ofSize: 12)
-        label.textColor = .systemPink
+        label.textColor = .systemOrange
         return label
     }()
     
@@ -204,7 +204,7 @@ class PostViewController: UIViewController {
     @objc private func didTapLikeBtn() {
         model.isLikedByCurrentUser = !model.isLikedByCurrentUser
         
-        likeButton.tintColor = model.isLikedByCurrentUser ? .systemRed : .white
+        likeButton.tintColor = model.isLikedByCurrentUser ? .systemOrange : .white
     }
     
     @objc private func didTapCommentBtn() {
@@ -213,7 +213,7 @@ class PostViewController: UIViewController {
     
     @objc private func didTapShareBtn() {
         // mockup post
-        guard let url = URL(string: "https://www.guhso.com/welcome-to-jamaica") else {
+        guard let url = URL(string: "https://www.guhso.com") else {
             return
         }
         
@@ -241,7 +241,7 @@ class PostViewController: UIViewController {
         
         let imageView = UIImageView(image: UIImage(systemName: "heart.fill"))
         imageView.tintColor = .white
-        imageView.frame = CGRect(x: 0, y: 0, width: 400, height: 400)
+        imageView.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
         imageView.center = touchPoint
         imageView.contentMode = .scaleAspectFit
         imageView.alpha = 0
