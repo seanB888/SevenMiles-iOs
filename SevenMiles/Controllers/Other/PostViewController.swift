@@ -32,7 +32,7 @@ class PostViewController: UIViewController {
     
     private let commentButton: UIButton = {
         let button = UIButton()
-        button.setBackgroundImage(UIImage(systemName: "plus.bubble.fill"), for: .normal)
+        button.setBackgroundImage(UIImage(systemName: "message.fill"), for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
         button.tintColor = .white
         return button
@@ -157,7 +157,7 @@ class PostViewController: UIViewController {
     private func configureVideo() {
         // To locate the video
         guard let path = Bundle.main.path(forResource: "bikelife", ofType: ".mp4") else {
-            print("bikelife not found")
+            // print("bikelife not found")
             return
         }
         let url = URL(fileURLWithPath: path)
@@ -235,13 +235,16 @@ class PostViewController: UIViewController {
     @objc private func didDoubleTap(_ gesture: UITapGestureRecognizer) {
         if !model.isLikedByCurrentUser {
             model.isLikedByCurrentUser = true
+            
+            // Allows to select the heart like button as well
+            likeButton.tintColor = model.isLikedByCurrentUser ? .systemOrange : .white
         }
         // finds the location that was touched
         let touchPoint = gesture.location(in: view)
         
         let imageView = UIImageView(image: UIImage(systemName: "heart.fill"))
-        imageView.tintColor = .white
-        imageView.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
+        imageView.tintColor = .systemOrange
+        imageView.frame = CGRect(x: 0, y: 0, width: 200, height: 180)
         imageView.center = touchPoint
         imageView.contentMode = .scaleAspectFit
         imageView.alpha = 0

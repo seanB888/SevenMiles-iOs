@@ -35,52 +35,52 @@
     {
       "id": "1",
       "image": "trending1",
-      "caption": "2020 has been crazy!",
+      "caption": "2020 has been crazy!"
     },
     {
       "id": "2",
       "image": "trending2",
-      "caption": "Whats your name?",
+      "caption": "Whats your name?"
     },
     {
       "id": "3",
       "image": "trending3",
-      "caption": "2 steppin!",
+      "caption": "2 steppin!"
     },
     {
       "id": "4",
       "image": "trending4",
-      "caption": "Bike life",
+      "caption": "Bike life"
     },
     {
       "id": "5",
       "image": "trending5",
-      "caption": "Nuggets",
+      "caption": "Nuggets"
     },
     {
       "id": "6",
       "image": "trending6",
-      "caption": "Drip",
+      "caption": "Drip"
     },
     {
       "id": "7",
       "image": "trending7",
-      "caption": "Kicks",
+      "caption": "Kicks"
     },
     {
       "id": "8",
       "image": "trending8",
-      "caption": "Swag Chicks!",
+      "caption": "Swag Chicks!"
     },
     {
       "id": "9",
       "image": "trending9",
-      "caption": "Hot Girl Summer!",
+      "caption": "Hot Girl Summer!"
     },
     {
       "id": "10",
       "image": "trending10",
-      "caption": "RIP Rappers",
+      "caption": "RIP Rappers"
     }
   ],
   "creators": [
@@ -199,64 +199,64 @@
     {
       "id": "1",
       "image": "trending10",
-      "caption": "2020 has been crazy!",
+      "caption": "2020 has been crazy!"
     },
     {
       "id": "2",
       "image": "trending8",
-      "caption": "Australia trip 2020!",
+      "caption": "Australia trip 2020!"
     },
     {
       "id": "3",
       "image": "trending4",
-      "caption": "What do you actually want!",
+      "caption": "What do you actually want!"
     },
     {
       "id": "4",
       "image": "trending3",
-      "caption": "Follow on instagram!",
+      "caption": "Follow on instagram!"
     },
     {
       "id": "5",
       "image": "trending1",
-      "caption": "Finding more friends!",
+      "caption": "Finding more friends!"
     },
     {
       "id": "6",
       "image": "trending2",
-      "caption": "Day trip to the beach!",
+      "caption": "Day trip to the beach!"
     }
   ],
   "recommended": [
     {
       "id": "1",
       "image": "trending1",
-      "caption": "2020 has been crazy!",
+      "caption": "2020 has been crazy!"
     },
     {
       "id": "2",
       "image": "trending2",
-      "caption": "Australia trip 2020!",
+      "caption": "Australia trip 2020!"
     },
     {
       "id": "3",
       "image": "trending3",
-      "caption": "What do you actually want!",
+      "caption": "What do you actually want!"
     },
     {
       "id": "4",
       "image": "trending4",
-      "caption": "Follow on instagram!",
+      "caption": "Follow on instagram!"
     },
     {
       "id": "5",
       "image": "trending5",
-      "caption": "Finding more friends!",
+      "caption": "Finding more friends!"
     },
     {
       "id": "6",
       "image": "trending10",
-      "caption": "Day trip to the beach!",
+      "caption": "Day trip to the beach!"
     }
   ]
 }
