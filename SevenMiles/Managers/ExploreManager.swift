@@ -73,8 +73,7 @@ final class ExploreManager {
             ExploreUserViewModel(
                 profilePicture: UIImage(named: model.image),
                 username: model.username,
-                followerCount: model.followers_count,
-                followingMe: model.followingMe
+                followerCount: model.followers_count
             ) { [ weak self ] in
                 // code...
                 DispatchQueue.main.async {
@@ -240,6 +239,5 @@ struct Creator: Codable {
     let image: String
     let username: String
     let followers_count: Int
-    let followingMe: String
 }
 

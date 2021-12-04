@@ -65,6 +65,7 @@ final class StorageManager {
     }
     
     func getDownloadURL(for post: PostModel, completion: @escaping (Result<URL, Error>) -> Void) {
+        print(post.videoChildPath, "WHERE IS THE LINK ERROR:")
         storageBucket.child(post.videoChildPath).downloadURL { url, error in
             if let error = error {
                 completion(.failure(error))

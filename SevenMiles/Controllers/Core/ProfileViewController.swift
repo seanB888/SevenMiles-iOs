@@ -13,7 +13,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         if let username = UserDefaults.standard.string(forKey: "username") {
             return user.username.lowercased() == username.lowercased()
         }
-        return true
+        return false
     }
     
     enum PicturePickerType {
@@ -144,7 +144,6 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         header.delegate = self
         let viewModel = ProfileHeaderViewModel(
             avatarImageURL: user.profilePictureURL,
-            followingMe: "3.5B",
             followerCount: 3000,
             followingCount: 200,
             isFollowing: isCurrentUserProfile ? nil : false
@@ -188,7 +187,7 @@ extension ProfileViewController: ProfileHeaderCollectionReusableViewDelegate {
         guard isCurrentUserProfile else {
             return
         }
-        /// actionsheet
+        /// actionsheet to choose the profile picture
         let actionSheet = UIAlertController(title: "Profile Picture", message: nil, preferredStyle: .actionSheet)
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in

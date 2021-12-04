@@ -82,7 +82,7 @@ class TabBarViewController: UITabBarController {
         
         nav1.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "house"), tag: 1)
         nav2.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "magnifyingglass"), tag: 2)
-        camera.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "plus.square"), tag: 3)
+        camera.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "camera.circle.fill"), tag: 3)
         nav3.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "mail"), tag: 4)
         nav4.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "person"), tag: 5)
         
