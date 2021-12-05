@@ -213,7 +213,6 @@
 			children = (
 				8760FB6B27111CE3003D915A /* Other */,
 				8760FB6A27111CCB003D915A /* StoryBoard */,
-				872EA7BA27388930000EEFFD /* ProfileHeaderViewModel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -236,6 +235,7 @@
 		8760FB5427111B35003D915A /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				872EA7BA27388930000EEFFD /* ProfileHeaderViewModel.swift */,
 				8799E0D327177F5D00505AAC /* ExploreBannerViewModel.swift */,
 				8799E0D527177FE400505AAC /* ExplorePostsViewModel.swift */,
 				8799E0D72717864600505AAC /* ExploreHashtagViewModel.swift */,

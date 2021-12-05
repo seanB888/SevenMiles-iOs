@@ -66,7 +66,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         let username = UserDefaults.standard.string(forKey: "username")?.uppercased() ?? "Me"
         if title == username {
             navigationItem.rightBarButtonItem = UIBarButtonItem(
-                image: UIImage(systemName: "gear"),
+                image: UIImage(systemName: "slider.horizontal.3"),
                 style: .done,
                 target: self,
                 action: #selector(didTapSettings)
@@ -103,14 +103,12 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let postModel = posts[indexPath.row]
-        guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: PostCollectionViewCell.identifier,
-            for: indexPath
-        )
-        as? PostCollectionViewCell else {
-            return UICollectionViewCell()
-        }
-        cell.configure(with: postModel)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PostCollectionViewCell.identifier, for: indexPath)
+//        as? PostCollectionViewCell else {
+//            return UICollectionViewCell()
+//        }
+        cell.backgroundColor = .systemOrange
+        // cell.configure(with: postModel)
         return cell
     }
     
@@ -144,13 +142,14 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         header.delegate = self
         let viewModel = ProfileHeaderViewModel(
             avatarImageURL: user.profilePictureURL,
-            followerCount: 3000,
-            followingCount: 200,
+            followerCount: 300,
+            followingCount: 300,
             isFollowing: isCurrentUserProfile ? nil : false
         )
         header.configure(with: viewModel)
         return header
     }
+    /// The size of the header
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: view.width, height: 300)
     }

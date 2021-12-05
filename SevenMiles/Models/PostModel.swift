@@ -35,6 +35,7 @@ struct PostModel {
     }
     
     var videoChildPath: String {
-        return "videos/\(user.username.lowercased())/\(fileName)"
+        print(user.username.lowercased())
+        return "videos/\(user.username)/\(fileName)"
     }
 }

@@ -130,8 +130,8 @@ final class DatabaseManager {
     public func getPosts(for user: User, completion: @escaping ([PostModel]) -> Void) {
         
         /// Reference
-        let path = "user/\(user.username.lowercased())/posts"
-        database.child(path).observeSingleEvent(of: .value) { (snapshot) in
+        let path = "user /\(user.username.lowercased())/posts"
+        database.child(path).observeSingleEvent(of: .value) { snapshot in
             guard let posts = snapshot.value as? [[String: String]] else {
                 completion([])
                 return

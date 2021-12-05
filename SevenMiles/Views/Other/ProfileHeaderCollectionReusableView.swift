@@ -81,7 +81,6 @@ class ProfileHeaderCollectionReusableView: UICollectionReusableView {
         /// add subviews
         addButtonSubviews()
         configureButtons()
-        
         let tap = UITapGestureRecognizer(target: self, action: #selector(didTapAvatar))
         avatarImageView.isUserInteractionEnabled = true
         avatarImageView.addGestureRecognizer(tap)
@@ -107,16 +106,12 @@ class ProfileHeaderCollectionReusableView: UICollectionReusableView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
         let avatarSize: CGFloat = 130
         avatarImageView.frame = CGRect(x: (width - avatarSize)/2, y: 5, width: avatarSize, height: avatarSize)
         avatarImageView.layer.cornerRadius = avatarImageView.height/2
-        
         followersButton.frame = CGRect(x: (width - 210)/2, y: avatarImageView.bottom + 10, width: 100, height: 50)
         followingButton.frame = CGRect(x: followersButton.right + 10, y: avatarImageView.bottom + 10, width: 100, height: 50)
-        
         primaryButton.frame = CGRect(x: (width - 220)/2, y: followingButton.bottom + 15, width: 220, height: 40)
-        
     }
     
     ///Actions
@@ -154,7 +149,7 @@ class ProfileHeaderCollectionReusableView: UICollectionReusableView {
     func configure(with viewModel: ProfileHeaderViewModel) {
         self.viewModel = viewModel
         /// Setup the header
-        //followersButton.setTitle("\(viewModel.followingMe ?? "3.7B")\nFollowers", for: .normal)
+        followersButton.setTitle("\(viewModel.followerCount)\nFollowers", for: .normal)
         followingButton.setTitle("\(viewModel.followingCount)\nFollowing", for: .normal)
         if let avatarURL = viewModel.avatarImageURL {
             avatarImageView.sd_setImage(with: avatarURL, completed: nil)
