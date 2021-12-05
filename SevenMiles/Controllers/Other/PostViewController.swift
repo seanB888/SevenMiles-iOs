@@ -82,6 +82,22 @@ class PostViewController: UIViewController {
     
     private var playerDidFinishObserveer: NSObjectProtocol?
     
+    private let videoView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .systemGray6
+        view.clipsToBounds = true
+        
+        return view
+    }()
+    
+    private let spinner: UIActivityIndicatorView = {
+        let spinner = UIActivityIndicatorView(style: .large)
+        spinner.tintColor = .systemOrange
+        spinner.hidesWhenStopped = true
+        spinner.startAnimating()
+        return spinner
+    }()
+    
     // MARK: - Init
     
     // the constructor "an initializer"
@@ -96,13 +112,9 @@ class PostViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // For the videoPlayer
-        configureVideo()
-        
-        let colors: [UIColor] = [
-            .darkGray, .lightGray, .systemGray, .systemGray2, .systemGray3, .systemGray4, .systemGray5, .gray
-        ]
-        view.backgroundColor = colors.randomElement()
+        view.addSubview(videoView)
+        configureVideo() /// For the videoPlayer
+        view.backgroundColor = .systemGray2
         
         setupButtons()
         // Double top to like
@@ -118,6 +130,9 @@ class PostViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
+        videoView.frame = view.bounds
+        spinner.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        spinner.center = videoView.center
         let size: CGFloat = 40
         let yStart: CGFloat = view.height - (size * 4.0) - 30 - view.safeAreaInsets.bottom
         for (index, button) in [likeButton, commentButton, shareButton].enumerated() {
@@ -153,23 +168,38 @@ class PostViewController: UIViewController {
         profileButton.layer.cornerRadius = size / 2
     }
     
+    // MARK: - Configure Video
+    
     // function for the videoPlayer
     private func configureVideo() {
-        // To locate the video
-        guard let path = Bundle.main.path(forResource: "bikelife", ofType: ".mp4") else {
-            // print("bikelife not found")
-            return
+        StorageManager.shared.getDownloadURL(for: model) { [weak self] result in
+            DispatchQueue.main.async {
+                guard let strongSelf = self else {
+                    return
+                }
+                strongSelf.spinner.stopAnimating()
+                strongSelf.spinner.removeFromSuperview()
+                switch result {
+                case.success(let url):
+                    strongSelf.player = AVPlayer(url: url)
+                    // helps to add to a subView
+                    let playerLayer = AVPlayerLayer(player: strongSelf.player)
+                    playerLayer.frame = strongSelf.view.bounds
+                    playerLayer.videoGravity = .resizeAspectFill
+                    strongSelf.videoView.layer.addSublayer(playerLayer)
+                    strongSelf.player?.volume = 0
+                    strongSelf.player?.play()
+                case.failure:
+                    // To locate the video
+                    guard let path = Bundle.main.path(forResource: "bikelife", ofType: ".mp4") else {
+                        return
+                    }
+                }
+            }
         }
-        let url = URL(fileURLWithPath: path)
-        player = AVPlayer(url: url)
         
-        // helps to add to a subView
-        let playerLayer = AVPlayerLayer(player: player)
-        playerLayer.frame = view.bounds
-        playerLayer.videoGravity = .resizeAspectFill
-        view.layer.addSublayer(playerLayer)
-        player?.volume = 0
-        player?.play()
+//        let url = URL(fileURLWithPath: path)
+        
         
         guard let player = player else {
             return

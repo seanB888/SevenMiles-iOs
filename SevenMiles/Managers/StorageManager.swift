@@ -38,7 +38,6 @@ final class StorageManager {
         }
         
         let path = "Profile_Pictures/\(username)/picture.png"
-        
         storageBucket.child(path).putData(imageData, metadata: nil) { _, error in
             if let error = error {
                 completion(.failure(error))
@@ -65,6 +64,7 @@ final class StorageManager {
     }
     
     func getDownloadURL(for post: PostModel, completion: @escaping (Result<URL, Error>) -> Void) {
+        print("Video Child Path: \(post.videoChildPath)")
         storageBucket.child(post.videoChildPath).downloadURL { url, error in
             if let error = error {
                 completion(.failure(error))

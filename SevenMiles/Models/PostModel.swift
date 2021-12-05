@@ -12,7 +12,7 @@ struct PostModel {
     let identifier: String
     let user: User
     var fileName: String = ""
-    var captionName: String = ""
+    var caption: String = ""
     
     // an emutable property
     var isLikedByCurrentUser = false
@@ -24,7 +24,7 @@ struct PostModel {
             let post = PostModel(
                 identifier: UUID().uuidString,
                 user: User(
-                    username: "Sean",
+                    username: "SeanB",
                     profilePictureURL: nil,
                     indentifier: UUID().uuidString
                 )
@@ -35,7 +35,6 @@ struct PostModel {
     }
     
     var videoChildPath: String {
-        print(user.username.lowercased())
-        return "videos/\(user.username)/\(fileName)"
+        return "videos/\(user.username.lowercased())/\(fileName)"
     }
 }

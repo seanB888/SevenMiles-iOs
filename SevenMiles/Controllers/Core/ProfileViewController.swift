@@ -92,7 +92,6 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         collectionView.frame = view.bounds
-        
     }
     
     // MARK: - CollectionView
@@ -103,18 +102,23 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let postModel = posts[indexPath.row]
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PostCollectionViewCell.identifier, for: indexPath)
-//        as? PostCollectionViewCell else {
-//            return UICollectionViewCell()
-//        }
-        cell.backgroundColor = .systemOrange
-        // cell.configure(with: postModel)
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: PostCollectionViewCell.identifier,
+            for: indexPath
+        ) as? PostCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        cell.configure(with: postModel)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         // Open post
+        let post = posts[indexPath.row]
+        let vc = PostViewController(model: post)
+        vc.title = "Video"
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -142,7 +146,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         header.delegate = self
         let viewModel = ProfileHeaderViewModel(
             avatarImageURL: user.profilePictureURL,
-            followerCount: 300,
+            followerCount: 8000,
             followingCount: 300,
             isFollowing: isCurrentUserProfile ? nil : false
         )
@@ -247,4 +251,16 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
         }
         
     }
+}
+
+extension ProfileViewController: PostViewControllerDelegate {
+    func postViewController(_ vc: PostViewController, didTapCommentButtonFor post: PostModel) {
+        // Present comments
+    }
+    
+    func postViewController(_ vc: PostViewController, didTapProfileButtonFor post: PostModel) {
+        // Tap to push another profile button
+    }
+    
+    
 }

@@ -43,7 +43,7 @@ class PostCollectionViewCell: UICollectionViewCell {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let url):
-                    print("This is the url: \(url)")
+                    print("This is the video url: \(url)")
                     // Generate a thumbnail
                     let asset = AVAsset(url: url)
                     let generator = AVAssetImageGenerator(asset: asset)
@@ -56,7 +56,7 @@ class PostCollectionViewCell: UICollectionViewCell {
                         
                     }
                 case .failure(let error):
-                    print("fail to get download url: \(error)")
+                     print("fail to get download url: \(error)")
                 }
             }
         }

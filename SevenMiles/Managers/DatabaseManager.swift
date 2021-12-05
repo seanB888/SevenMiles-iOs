@@ -128,9 +128,8 @@ final class DatabaseManager {
     }
     
     public func getPosts(for user: User, completion: @escaping ([PostModel]) -> Void) {
-        
         /// Reference
-        let path = "user /\(user.username.lowercased())/posts"
+        let path = "user/\(user.username.lowercased())/posts"
         database.child(path).observeSingleEvent(of: .value) { snapshot in
             guard let posts = snapshot.value as? [[String: String]] else {
                 completion([])
@@ -141,7 +140,7 @@ final class DatabaseManager {
                 var model = PostModel(identifier: UUID().uuidString,
                           user: user)
                 model.fileName = $0["name"] ?? ""
-                model.captionName = $0["name"] ?? ""
+                model.caption = $0["name"] ?? ""
                 return model
             })
             completion(models)

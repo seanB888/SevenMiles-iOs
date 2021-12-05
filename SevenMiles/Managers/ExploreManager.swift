@@ -173,7 +173,7 @@ final class ExploreManager {
                 DispatchQueue.main.async {
                     let postID = model.id
                     let vc = PostViewController(model: PostModel(identifier: postID, user: User(
-                        username: "Sean",
+                        username: "SeanB",
                         profilePictureURL: nil,
                         indentifier: UUID().uuidString
                     )))
