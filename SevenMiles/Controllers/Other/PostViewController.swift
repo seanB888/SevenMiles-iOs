@@ -187,7 +187,7 @@ class PostViewController: UIViewController {
                     playerLayer.frame = strongSelf.view.bounds
                     playerLayer.videoGravity = .resizeAspectFill
                     strongSelf.videoView.layer.addSublayer(playerLayer)
-                    strongSelf.player?.volume = 0
+                    strongSelf.player?.volume = 5
                     strongSelf.player?.play()
                 case.failure:
                     // To locate the video
