@@ -4,8 +4,18 @@
 //
 //  Created by SEAN BLAKE on 10/8/21.
 //
-
+import SafariServices
 import UIKit
+
+struct SettingsSection {
+    let title: String
+    let options: [SettingsOption]
+}
+
+struct SettingsOption {
+    let title: String
+    let handler: (() -> Void)
+}
 
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -14,9 +24,36 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         return table
     }()
+    
+    var sections = [SettingsSection]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        sections = [
+            SettingsSection(
+                title: "Information",
+                options: [
+                    SettingsOption(title: "Terms of Service", handler: { [weak self] in
+                        DispatchQueue.main.async {
+                            guard let url = URL(string: "https://5fourlab.com/angular/index.html#/") else {
+                                return
+                            }
+                            let vc = SFSafariViewController(url: url)
+                            self?.present(vc, animated: true)
+                        }
+                    }),
+                    SettingsOption(title: "Privacy Policy", handler: { [weak self] in
+                        DispatchQueue.main.async {
+                            guard let url = URL(string: "https://5fourlab.com/angular/index.html#/policy") else {
+                                return
+                            }
+                            let vc = SFSafariViewController(url: url)
+                            self?.present(vc, animated: true)
+                        }
+                    })
+                ])
+        ]
         title = "Settings"
         view.backgroundColor = .systemBackground
         view.addSubview(tableView)
@@ -75,13 +112,34 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.frame = view.bounds
     }
     
+    // MARK: - TableView
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sections.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return sections[section].options.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "Wha Gwaan"
+        let model = sections[indexPath.section].options[indexPath.row]
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: "cell",
+            for: indexPath
+        )
+        cell.accessoryType = .disclosureIndicator
+        cell.textLabel?.text = model.title
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let model = sections[indexPath.section].options[indexPath.row]
+        model.handler()
+    }
+    
+    // Title header
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sections[section].title
     }
 }
