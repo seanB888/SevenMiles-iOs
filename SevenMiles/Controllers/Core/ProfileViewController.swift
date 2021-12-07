@@ -200,12 +200,15 @@ extension ProfileViewController: ProfileHeaderCollectionReusableViewDelegate {
     func profileHeaderCollectionReusableView(_ header: ProfileHeaderCollectionReusableView,
                                              didTapPrimaryButtonWith viewModel: ProfileHeaderViewModel) {
         /// get current username
-        guard let currentUsername = UserDefaults.standard.string(forKey: "username") else {
-            return
-        }
+//        guard let currentUsername = UserDefaults.standard.string(forKey: "username") else {
+//            return
+//        }
         
-        if self.user.username == currentUsername {
+        if isCurrentUserProfile {
             // Edit User profile
+            let vc = EditProfileViewController()
+            let navVC = UINavigationController(rootViewController: vc)
+            present(navVC, animated: true)
         }
         else {
             // Follow or unfollow current user profile that you are viewing
