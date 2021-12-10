@@ -207,9 +207,23 @@ extension NotificationViewController: NotificationsUserFollowTableViewCellDelega
                 print("Something went wrong mi idreen")
             }
         }
+        
+        DatabaseManager.shared.updateRelationship(
+            for: User(username: username,
+                      profilePictureURL: nil,
+                      indentifier: UUID().uuidString
+                     ),
+               follow: true) { success in
+                   if !success {
+                       // notify the user that something went wrong
+                       
+                   }
+               }
     }
     
     func notificationsUserFollowTableViewCell(_ cell: NotificationsUserFollowTableViewCell, didTapAvatarFor username: String) {
+        // Haptics Manager
+        HapticsManager.shared.vibrateForSelection()
         let vc = ProfileViewController(user: User(
             username: username,
             profilePictureURL: nil,
@@ -233,6 +247,9 @@ extension NotificationViewController: NotificationsPostCommentTableViewCellDeleg
 
 extension NotificationViewController {
     func openPost(with identifier: String) {
+        // Haptics Manager
+        HapticsManager.shared.vibrateForSelection()
+        
         ///resolve post model from database
         let vc = PostViewController(model: PostModel(identifier: identifier, user: User(
             username: "SeanB",

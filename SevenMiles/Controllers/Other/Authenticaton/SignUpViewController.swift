@@ -137,9 +137,11 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         AuthManager.shared.signUp(with: username, emailAddress: email, password: password, firstName: firstName, lastName: lastName, phoneNumnber: phoneNumber) { [ weak self ] success in
             DispatchQueue.main.async {
                 if success {
-                    print("Your are signed up!")
+                    HapticsManager.shared.vibrate(for: .success)
+                    self?.dismiss(animated: true, completion: nil)
                 }
                 else {
+                    HapticsManager.shared.vibrate(for: .error)
                     let alert = UIAlertController(
                         title: "Dat Never Work!",
                         message: " Something nuh right with wha happen awhile ago.",

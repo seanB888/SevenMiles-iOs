@@ -269,6 +269,7 @@ class PostViewController: UIViewController {
             // Allows to select the heart like button as well
             likeButton.tintColor = model.isLikedByCurrentUser ? .systemOrange : .white
         }
+        HapticsManager.shared.vibrateForSelection()
         // finds the location that was touched
         let touchPoint = gesture.location(in: view)
         

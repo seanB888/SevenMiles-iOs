@@ -489,10 +489,12 @@ extension ExploreViewController {
 
 extension ExploreViewController: ExploreManagerDelegate {
     func pushViewController(_ vc: UIViewController) {
+        HapticsManager.shared.vibrateForSelection()
         navigationController?.pushViewController(vc, animated: true)
     }
     
     func didTapHashTag(_ hashtag: String) {
+        HapticsManager.shared.vibrateForSelection()
         searchBar.text = hashtag
         searchBar.becomeFirstResponder()
     }

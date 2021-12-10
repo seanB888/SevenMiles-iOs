@@ -14,8 +14,8 @@
             filePath = "SevenMiles/Managers/ExploreManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
             landmarkName = "ExploreManager"
             landmarkType = "3">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "SevenMiles/Managers/ExploreManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
             landmarkName = "getExploreBanners()"
             landmarkType = "7">
          </BreakpointContent>
