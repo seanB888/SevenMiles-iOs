@@ -22,10 +22,10 @@ protocol ExploreManagerDelegate: AnyObject {
 final class ExploreManager {
     /// Shared singleton instance
     static let shared = ExploreManager()
-    
+
     /// Delegate to notify of events
     weak var delegate: ExploreManagerDelegate?
-    
+
     /// Repersents Banner action type
     enum BannerAction: String {
         /// Post type
@@ -35,8 +35,7 @@ final class ExploreManager {
         /// Creator type
         case user
     }
-    
-    
+
     // MARK: - BANNER
     /// Gets Explore Data for the banner
     /// - Returns: Returns collection of models
@@ -44,7 +43,7 @@ final class ExploreManager {
         guard let exploreData = parseExploreData() else {
             return []
         }
-        
+
         return exploreData.banners.compactMap({ model in
             return ExploreBannerViewModel(
                 image: UIImage(named: model.image),
@@ -60,7 +59,7 @@ final class ExploreManager {
                     vc.title = action.rawValue.uppercased()
                     self?.delegate?.pushViewController(vc)
                 }
-                
+
                 switch action {
                 case .user:
                     // present Profile of that user
@@ -75,7 +74,7 @@ final class ExploreManager {
             }
         })
     }
-    
+
     // MARK: - USERS
     /// Gets Explore Data of creators
     /// - Returns: Returns collection of models
@@ -83,8 +82,8 @@ final class ExploreManager {
         guard let exploreData = parseExploreData() else {
             return []
         }
-        
-        return exploreData.creators.compactMap ({ model in
+
+        return exploreData.creators.compactMap({ model in
             ExploreUserViewModel(
                 profilePicture: UIImage(named: model.image),
                 username: model.username,
@@ -100,7 +99,7 @@ final class ExploreManager {
             }
         })
     }
-    
+
     // MARK: - HASHTAGS
     /// Gets Explore Data for hashtags
     /// - Returns: Returns collection of models
@@ -108,22 +107,21 @@ final class ExploreManager {
         guard let exploreData = parseExploreData() else {
             return []
         }
-        
+
         return exploreData.hashtags.compactMap({ model in
             ExploreHashtagViewModel(
                 text: model.tag,
                 icon: UIImage(systemName: model.image),
                 count: model.count
             ) { [ weak self ] in
-                //code... main thread
+                // code... main thread
                 DispatchQueue.main.async {
                     self?.delegate?.didTapHashTag(model.tag)
                 }
             }
         })
     }
-    
-    
+
     // MARK: - TRENDING POSTS
     /// Gets Explore Data for trending posts
     /// - Returns: Returns collection of models
@@ -131,7 +129,7 @@ final class ExploreManager {
         guard let exploreData = parseExploreData() else {
             return []
         }
-        
+
         return exploreData.trendingPosts.compactMap({ model in
             ExplorePostsViewModel(
                 thumbnailImage: UIImage(named: model.image),
@@ -151,7 +149,7 @@ final class ExploreManager {
             }
         })
     }
-    
+
     // MARK: - RECENT POSTS
     /// Gets Explore Data for recent posts
     /// - Returns: Returns collection of models
@@ -159,7 +157,7 @@ final class ExploreManager {
         guard let exploreData = parseExploreData() else {
             return []
         }
-        
+
         return exploreData.recentPosts.compactMap({ model in
             ExplorePostsViewModel(
                 thumbnailImage: UIImage(named: model.image),
@@ -178,7 +176,7 @@ final class ExploreManager {
             }
         })
     }
-    
+
     // MARK: - POPULAR POSTS
     /// Gets Explore Data for popular posts
     /// - Returns: Returns collection of models
@@ -186,7 +184,7 @@ final class ExploreManager {
         guard let exploreData = parseExploreData() else {
             return []
         }
-        
+
         return exploreData.popular.compactMap({ model in
             ExplorePostsViewModel(
                 thumbnailImage: UIImage(named: model.image),
@@ -205,7 +203,7 @@ final class ExploreManager {
             }
         })
     }
-    
+
     // MARK: - PRIVATE
     // function used to parse the JSON
     /// Parse explore JSON data
@@ -222,8 +220,7 @@ final class ExploreManager {
                 ExploreResponse.self,
                 from: data
             )
-        }
-        catch {
+        } catch {
             print(error)
             return nil
         }
@@ -265,4 +262,3 @@ struct Creator: Codable {
     let username: String
     let followers_count: Int
 }
-

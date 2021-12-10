@@ -10,7 +10,7 @@ import UIKit
 class ExploreBannerCollectionViewCell: UICollectionViewCell {
     // the identifier
     static let identifier = "ExploreBannerCollectionViewCell"
-    
+
     // the variable for the image
     private let imageView: UIImageView = {
         let imageView = UIImageView()
@@ -18,7 +18,7 @@ class ExploreBannerCollectionViewCell: UICollectionViewCell {
         imageView.clipsToBounds = true
         return imageView
     }()
-    
+
     // the variable for the label that sits on image
     private let label: UILabel = {
         let label = UILabel()
@@ -27,7 +27,7 @@ class ExploreBannerCollectionViewCell: UICollectionViewCell {
         label.textColor = .white
         return label
     }()
-    
+
     // create a frame for the initializer
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -37,11 +37,11 @@ class ExploreBannerCollectionViewCell: UICollectionViewCell {
         // contentView.layer.cornerRadius = 15
         contentView.layer.masksToBounds = true
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError()
     }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
         label.sizeToFit()
@@ -49,13 +49,13 @@ class ExploreBannerCollectionViewCell: UICollectionViewCell {
         label.frame = CGRect(x: 10, y: contentView.height - 5 - label.height, width: label.width, height: label.height)
         contentView.bringSubviewToFront(label)
     }
-    
+
     override func prepareForReuse() {
         super.prepareForReuse()
         imageView.image = nil
         label.text = nil
     }
-    
+
     func configure(with viewModel: ExploreBannerViewModel) {
         imageView.image = viewModel.image
         label.text = viewModel.title

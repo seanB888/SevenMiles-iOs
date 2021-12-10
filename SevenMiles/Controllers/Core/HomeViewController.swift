@@ -19,7 +19,7 @@ class HomeViewController: UIViewController {
         scrollView.showsHorizontalScrollIndicator = false
         return scrollView
     }()
-    
+
     // UISegmentedControl global variable
     let control: UISegmentedControl = {
         let titles = ["Following", "For You"]
@@ -36,22 +36,22 @@ class HomeViewController: UIViewController {
         control.selectedSegmentTintColor = .systemOrange
         control.setTitleTextAttributes(titleTextAttributes, for: .normal)
         control.setTitleTextAttributes(titleTextAttributes2, for: .selected)
-        
+
         return control
     }()
-    
+
     let forYouPagingController = UIPageViewController(
         transitionStyle: .scroll,
         navigationOrientation: .vertical,
         options: [:]
     )
-    
+
     let followingYouPagingController = UIPageViewController(
         transitionStyle: .scroll,
         navigationOrientation: .vertical,
         options: [:]
     )
-    
+
     // Used to fetch the POSTS from the database
     /*
      This is using the mockModels for data
@@ -62,9 +62,8 @@ class HomeViewController: UIViewController {
     private var forYouPosts = PostModel.mockModels()
     private var followingPosts = PostModel.mockModels()
 
-    // MARK: -Lifecycle
-    
-    
+    // MARK: - Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -75,13 +74,13 @@ class HomeViewController: UIViewController {
         horizontalScrollView.contentOffset = CGPoint(x: view.width, y: 0)
         setUpHeaderButtons()
     }
-    
+
     // Give the ScrollView a frame
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         horizontalScrollView.frame = view.bounds
     }
-    
+
     // Header buttons
     func setUpHeaderButtons() {
 //        let titles = ["Following", "For You"]
@@ -90,26 +89,26 @@ class HomeViewController: UIViewController {
         control.addTarget(self, action: #selector(didChangeSegmentControl(_:)), for: .valueChanged)
         navigationItem.titleView = control
     }
-    
+
     @objc private func didChangeSegmentControl(_ sender: UISegmentedControl) {
         horizontalScrollView.setContentOffset(CGPoint(x: view.width * CGFloat(sender.selectedSegmentIndex),
                                                       y: 0),
                                               animated: true)
     }
-    
+
     // Feed view
     private func setUpFeed() {
         horizontalScrollView.contentSize = CGSize(width: view.width * 2, height: view.height)
         setUpFollowingFeed()
         setUpForYouFeed()
     }
-    
+
     func setUpFollowingFeed() {
         // getting the first post from the model
         guard let model = followingPosts.first else {
             return
         }
-        
+
         let vc = PostViewController(model: model)
         vc.delegate = self
         followingYouPagingController.setViewControllers(
@@ -119,7 +118,7 @@ class HomeViewController: UIViewController {
             completion: nil
         )
         followingYouPagingController.dataSource = self
-        
+
         // composition child controller
         horizontalScrollView.addSubview(followingYouPagingController.view)
         followingYouPagingController.view.frame = CGRect(
@@ -130,13 +129,13 @@ class HomeViewController: UIViewController {
         addChild(followingYouPagingController)
         followingYouPagingController.didMove(toParent: self)
     }
-    
+
     func setUpForYouFeed() {
         // getting to first post from the model
         guard let model = forYouPosts.first else {
             return
         }
-        
+
         let vc = PostViewController(model: model)
         vc.delegate = self
         forYouPagingController.setViewControllers(
@@ -146,7 +145,7 @@ class HomeViewController: UIViewController {
             completion: nil
         )
         forYouPagingController.dataSource = self
-        
+
         // composition child controller
         horizontalScrollView.addSubview(forYouPagingController.view)
         forYouPagingController.view.frame = CGRect(
@@ -175,18 +174,18 @@ extension HomeViewController: UIPageViewControllerDataSource {
             // if doesn't get anything, return nil
             return nil
         }
-        
+
         if index == 0 {
             return nil
         }
-        
+
         let priorIndex = index - 1
         let model = currentPosts[priorIndex]
         let vc = PostViewController(model: model)
         vc.delegate = self
         return vc
     }
-    
+
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         // Used to get the current post
         guard let fromPost = (viewController as? PostViewController)?.model else {
@@ -201,18 +200,18 @@ extension HomeViewController: UIPageViewControllerDataSource {
             // if doesn't get anything, return nil
             return nil
         }
-        
+
         guard index < (currentPosts.count - 1) else {
             return nil
         }
-        
+
         let nextIndex = index + 1
         let model = currentPosts[nextIndex]
         let vc = PostViewController(model: model)
         vc.delegate = self
         return vc
     }
-    
+
     // Use to arrange the post
     var currentPosts: [PostModel] {
         if horizontalScrollView.contentOffset.x == 0 {
@@ -228,8 +227,7 @@ extension HomeViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.x == 0 || scrollView.contentOffset.x <= (view.width/2) {
             control.selectedSegmentIndex = 0
-        }
-        else if scrollView.contentOffset.x > (view.width/2) {
+        } else if scrollView.contentOffset.x > (view.width/2) {
             control.selectedSegmentIndex = 1
         }
     }
@@ -242,14 +240,13 @@ extension HomeViewController: PostViewControllerDelegate {
         if horizontalScrollView.contentOffset.x == 0 {
             // referring to the following feed
             followingYouPagingController.dataSource = nil
-        }
-        else {
+        } else {
             forYouPagingController.dataSource = nil
         }
-        
+
         // Haptics
         HapticsManager.shared.vibrateForSelection()
-        
+
         // Presents a comment tray
         let vc = CommentsViewController(post: post)
         vc.delegate = self
@@ -266,7 +263,7 @@ extension HomeViewController: PostViewControllerDelegate {
                 height: frame.height)
         }
     }
-    
+
     func postViewController(_ vc: PostViewController, didTapProfileButtonFor post: PostModel) {
         let user = post.user
         let vc = ProfileViewController(user: user)

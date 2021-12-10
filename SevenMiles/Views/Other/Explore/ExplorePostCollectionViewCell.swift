@@ -10,7 +10,7 @@ import UIKit
 class ExplorePostCollectionViewCell: UICollectionViewCell {
     // the identifier
     static let identifier = "ExplorePostCollectionViewCell"
-    
+
     // variable for the image
     private let thumbnailImageView: UIImageView = {
         let imageView = UIImageView()
@@ -18,7 +18,7 @@ class ExplorePostCollectionViewCell: UICollectionViewCell {
         imageView.clipsToBounds = true
         return imageView
     }()
-    
+
     // Caption Label
     private let captionLabel: UILabel = {
         let label = UILabel()
@@ -27,7 +27,7 @@ class ExplorePostCollectionViewCell: UICollectionViewCell {
         label.textColor = .systemOrange
         return label
     }()
-    
+
     // create a frame for the initializer
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -37,11 +37,11 @@ class ExplorePostCollectionViewCell: UICollectionViewCell {
         contentView.layer.cornerRadius = 3
         contentView.layer.masksToBounds = true
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError()
     }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
         captionLabel.sizeToFit()
@@ -50,16 +50,16 @@ class ExplorePostCollectionViewCell: UICollectionViewCell {
                                     width: captionLabel.width, height: captionLabel.height)
         contentView.bringSubviewToFront(captionLabel)
     }
-    
+
     override func prepareForReuse() {
         super.prepareForReuse()
         thumbnailImageView.image = nil
         captionLabel.text = nil
     }
-    
+
     func configure(with viewModel: ExplorePostsViewModel) {
         captionLabel.text = viewModel.caption
-        //print(viewModel.thumbnailImage)
+        // print(viewModel.thumbnailImage)
         thumbnailImageView.image = viewModel.thumbnailImage
     }
 }

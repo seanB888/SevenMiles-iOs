@@ -7,7 +7,6 @@
 import SDWebImage
 import UIKit
 
-
 protocol ProfileHeaderCollectionReusableViewDelegate: AnyObject {
     func profileHeaderCollectionReusableView(_ header: ProfileHeaderCollectionReusableView,
                                              didTapPrimaryButtonWith viewModel: ProfileHeaderViewModel)
@@ -21,12 +20,12 @@ protocol ProfileHeaderCollectionReusableViewDelegate: AnyObject {
 
 class ProfileHeaderCollectionReusableView: UICollectionReusableView {
     static let identifier = "ProfileHeaderCollectionReusableView"
-    
+
     weak var delegate: ProfileHeaderCollectionReusableViewDelegate?
-    
+
     /// ViewModel
     var viewModel: ProfileHeaderViewModel?
-    
+
     /// Subviews
     private let avatarImageView: UIImageView = {
         let imageView = UIImageView()
@@ -35,7 +34,7 @@ class ProfileHeaderCollectionReusableView: UICollectionReusableView {
         imageView.backgroundColor = .secondarySystemBackground
         return imageView
     }()
-    
+
     /// Follow or Edit Profile
     /// Primary Button
     private let primaryButton: UIButton = {
@@ -74,9 +73,9 @@ class ProfileHeaderCollectionReusableView: UICollectionReusableView {
         button.backgroundColor = .secondarySystemBackground
         return button
     }()
-    
+
     // MARK: - Init
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         clipsToBounds = true
@@ -88,7 +87,7 @@ class ProfileHeaderCollectionReusableView: UICollectionReusableView {
         avatarImageView.isUserInteractionEnabled = true
         avatarImageView.addGestureRecognizer(tap)
     }
-    
+
     /// subview buttons
     func addButtonSubviews() {
         addSubview(avatarImageView)
@@ -96,7 +95,7 @@ class ProfileHeaderCollectionReusableView: UICollectionReusableView {
         addSubview(followersButton)
         addSubview(followingButton)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError()
     }
@@ -106,7 +105,7 @@ class ProfileHeaderCollectionReusableView: UICollectionReusableView {
         followersButton.addTarget(self, action: #selector(didTapFollowersButton), for: .touchUpInside)
         followingButton.addTarget(self, action: #selector(didTapFollowingButton), for: .touchUpInside)
     }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
         let avatarSize: CGFloat = 130
@@ -116,8 +115,8 @@ class ProfileHeaderCollectionReusableView: UICollectionReusableView {
         followingButton.frame = CGRect(x: followersButton.right + 10, y: avatarImageView.bottom + 10, width: 100, height: 50)
         primaryButton.frame = CGRect(x: (width - 220)/2, y: followingButton.bottom + 15, width: 220, height: 40)
     }
-    
-    ///Actions
+
+    /// Actions
     @objc func didTapAvatar() {
         guard let viewModel = self.viewModel else {
             return
@@ -132,7 +131,7 @@ class ProfileHeaderCollectionReusableView: UICollectionReusableView {
 
         delegate?.profileHeaderCollectionReusableView(self, didTapPrimaryButtonWith: viewModel)
     }
-    
+
     @objc func didTapFollowersButton() {
         guard let viewModel = self.viewModel else {
             return
@@ -140,7 +139,7 @@ class ProfileHeaderCollectionReusableView: UICollectionReusableView {
 
         delegate?.profileHeaderCollectionReusableView(self, didTapFollowersButtonWith: viewModel)
     }
-    
+
     @objc func didTapFollowingButton() {
         guard let viewModel = self.viewModel else {
             return
@@ -148,7 +147,7 @@ class ProfileHeaderCollectionReusableView: UICollectionReusableView {
 
         delegate?.profileHeaderCollectionReusableView(self, didTapFollowersButtonWith: viewModel)
     }
-    
+
     func configure(with viewModel: ProfileHeaderViewModel) {
         self.viewModel = viewModel
         /// Setup the header
@@ -156,17 +155,15 @@ class ProfileHeaderCollectionReusableView: UICollectionReusableView {
         followingButton.setTitle("\(viewModel.followingCount)\nFollowing", for: .normal)
         if let avatarURL = viewModel.avatarImageURL {
             avatarImageView.sd_setImage(with: avatarURL, completed: nil)
-        }
-        else {
+        } else {
             avatarImageView.image = UIImage(named: "logo")
         }
-        
+
         if let isFollowing = viewModel.isFollowing {
             primaryButton.backgroundColor = isFollowing ? .secondarySystemBackground : .systemOrange
             primaryButton.setTitle(isFollowing ? "Unfollow" : "Follow", for: .normal)
-            
-        }
-        else {
+
+        } else {
             primaryButton.backgroundColor = .secondarySystemBackground
             primaryButton.setTitle("Edit Profile", for: .normal)
         }

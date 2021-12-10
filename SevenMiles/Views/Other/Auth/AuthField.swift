@@ -8,7 +8,7 @@
 import UIKit
 
 class AuthField: UITextField {
-    
+
     enum FieldType {
         case email
         case password
@@ -17,7 +17,7 @@ class AuthField: UITextField {
         case firstName
         case lastName
         case phoneNumber
-        
+
         var title: String {
             switch self {
             case .email: return "Email Address"
@@ -29,19 +29,19 @@ class AuthField: UITextField {
             }
         }
     }
-    
+
     private let type: FieldType
-    
+
     init(type: FieldType) {
         self.type = type
         super.init(frame: .zero)
         configureUI()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError()
     }
-    
+
     private func configureUI() {
         autocapitalizationType = .none
         backgroundColor = .secondarySystemBackground
@@ -52,12 +52,11 @@ class AuthField: UITextField {
         leftViewMode = .always
         returnKeyType = .done
         autocorrectionType = .no
-        
+
         if type == .password {
             textContentType = .oneTimeCode
             isSecureTextEntry = true
-        }
-        else if type == .email {
+        } else if type == .email {
             textContentType = .emailAddress
             keyboardType = .emailAddress
         }

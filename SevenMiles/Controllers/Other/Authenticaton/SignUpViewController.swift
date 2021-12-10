@@ -8,9 +8,9 @@ import SafariServices
 import UIKit
 
 class SignUpViewController: UIViewController, UITextFieldDelegate {
-    
+
     public var completion: (() -> Void)?
-    
+
     // MARK: - Logo
     private let logoImageView: UIImageView = {
         let imageView = UIImageView()
@@ -20,20 +20,20 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         imageView.image = UIImage(named: "logo")
         return imageView
     }()
-    
+
     private let emailField = AuthField(type: .email)
     private let usernameField = AuthField(type: .username)
     private let passwordField = AuthField(type: .password)
     private let firstNameField = AuthField(type: .firstName)
     private let lastNameField = AuthField(type: .lastName)
     private let phoneNumberField = AuthField(type: .phoneNumber)
-    
+
     private let signUpButton = AuthButton(type: .signUp, title: nil)
     private let termsOfAgreement = AuthButton(type: .plain, title: "Terms Of Agreement")
     private let signInToButton = AuthButton(type: .plain, title: "Already Have An Account")
-    
+
     // MARK: - Lifecycle
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -42,18 +42,18 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         configureField()
         configureButtons()
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         usernameField.resignFirstResponder()
     }
-    
+
     func configureButtons() {
         signUpButton.addTarget(self, action: #selector(didTapSignUp), for: .touchUpInside)
         signInToButton.addTarget(self, action: #selector(didTapHaveAccount), for: .touchUpInside)
         termsOfAgreement.addTarget(self, action: #selector(didTapTerms), for: .touchUpInside)
     }
-    
+
     func configureField() {
         emailField.delegate = self
         usernameField.delegate = self
@@ -61,7 +61,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         firstNameField.delegate = self
         lastNameField.delegate = self
         phoneNumberField.delegate = self
-        
+
         let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.width, height: 50))
         toolBar.items = [
             UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil),
@@ -75,7 +75,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         lastNameField.inputAccessoryView = toolBar
         phoneNumberField.inputAccessoryView = toolBar
     }
-    
+
     func addSubViews() {
         view.addSubview(logoImageView)
         view.addSubview(emailField)
@@ -88,32 +88,31 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         view.addSubview(signInToButton)
         view.addSubview(termsOfAgreement)
     }
-    
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
+
         let imageSize: CGFloat = 100
         // logo
         logoImageView.frame = CGRect(x: (view.width - imageSize)/2, y: view.safeAreaInsets.top + 5, width: imageSize, height: imageSize)
-        
+
         emailField.frame = CGRect(x: 20, y: logoImageView.bottom+20, width: view.width-40, height: 55)
         usernameField.frame = CGRect(x: 20, y: emailField.bottom+15, width: view.width-40, height: 55)
         passwordField.frame = CGRect(x: 20, y: usernameField.bottom+15, width: view.width-40, height: 55)
         firstNameField.frame = CGRect(x: 20, y: passwordField.bottom+15, width: view.width-40, height: 55)
         lastNameField.frame = CGRect(x: 20, y: firstNameField.bottom+15, width: view.width-40, height: 55)
         phoneNumberField.frame = CGRect(x: 20, y: lastNameField.bottom+15, width: view.width-40, height: 55)
-        
-        
+
         signUpButton.frame = CGRect(x: 20, y: phoneNumberField.bottom+20, width: view.width-40, height: 55)
         signInToButton.frame = CGRect(x: 20, y: signUpButton.bottom+20, width: view.width-40, height: 55)
         termsOfAgreement.frame = CGRect(x: 20, y: signInToButton.bottom+20, width: view.width-40, height: 55)
-        
+
     }
-    
+
     // Actions
     @objc func didTapSignUp() {
         didTapkeyboardDone()
-        
+
         guard let email = emailField.text,
               let password = passwordField.text,
               let username = usernameField.text,
@@ -139,8 +138,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 if success {
                     HapticsManager.shared.vibrate(for: .success)
                     self?.dismiss(animated: true, completion: nil)
-                }
-                else {
+                } else {
                     HapticsManager.shared.vibrate(for: .error)
                     let alert = UIAlertController(
                         title: "Dat Never Work!",
@@ -152,17 +150,16 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 }
             }
         }
-        
+
     }
-    
-    
+
     @objc func didTapHaveAccount() {
         didTapkeyboardDone()
         let vc = SignInViewController()
         vc.title = "Sign In To Your Account"
         navigationController?.pushViewController(vc, animated: true)
     }
-    
+
     @objc func didTapTerms() {
         didTapkeyboardDone()
         guard let url = URL(string: "https://guhso.com") else {
@@ -171,7 +168,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         let vc = SFSafariViewController(url: url)
         present(vc, animated: true)
     }
-    
+
     @objc func didTapkeyboardDone() {
         emailField.resignFirstResponder()
         usernameField.resignFirstResponder()
@@ -180,5 +177,5 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         lastNameField.resignFirstResponder()
         phoneNumberField.resignFirstResponder()
     }
-    
+
 }

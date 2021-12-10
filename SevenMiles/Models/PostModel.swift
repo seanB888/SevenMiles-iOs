@@ -13,10 +13,10 @@ struct PostModel {
     let user: User
     var fileName: String = ""
     var caption: String = ""
-    
+
     // an emutable property
     var isLikedByCurrentUser = false
-    
+
     // Used for debugging purposes
     static func mockModels() -> [PostModel] {
         var posts = [PostModel]()
@@ -33,7 +33,7 @@ struct PostModel {
         }
         return posts
     }
-    
+
     var videoChildPath: String {
         return "videos/\(user.username.lowercased())/\(fileName)"
     }

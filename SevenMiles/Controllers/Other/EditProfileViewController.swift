@@ -17,7 +17,7 @@ class EditProfileViewController: UIViewController {
                                                            target: self,
                                                            action: #selector(didTapClose))
     }
-    
+
     @objc func didTapClose() {
         dismiss(animated: true, completion: nil)
     }

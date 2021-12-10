@@ -11,14 +11,14 @@ struct PostComment {
     let text: String
     let user: User
     let date: Date
-    
+
     static func mockComments() -> [PostComment] {
         let user = User(username: "Nas",
                         profilePictureURL: nil,
                         indentifier: UUID().uuidString)
-        
+
         var comments = [PostComment]()
-        
+
         let text = [
             "Where was this shot?",
             "Makin moves this weekend",
@@ -28,7 +28,7 @@ struct PostComment {
             "I was this years old when I saw this",
             "WTF, and I aint talkin Wednesday, Thursday or Friday"
         ]
-        
+
         for comment in text {
             comments.append(
                 PostComment(

@@ -12,10 +12,10 @@ import FirebaseAuth
 final class AuthManager {
     /// Singleton instance of the manager
     public static let shared = AuthManager()
-    
+
     /// Private constructor
     private init() {}
-    
+
     /// Repersents method to sign in
     enum SignInMethod {
         /// Eamil method
@@ -29,18 +29,18 @@ final class AuthManager {
         /// User phone number method
 //        case phone
     }
-    
+
     /// Errors that can occur in Auth flows
     enum AuthError: Error {
         case signInFailed
     }
-    
-    //MARK:  - Public
+
+    // MARK: - Public
     /// Repersents if user is signed in
     public var isSignedIn: Bool {
         return Auth.auth().currentUser != nil
     }
-    
+
     /// Attempt to Sign in
     /// - Parameters:
     ///   - email: User email
@@ -51,8 +51,7 @@ final class AuthManager {
             guard result != nil, error == nil else {
                 if let error = error {
                     completion(.failure(error))
-                }
-                else {
+                } else {
                     completion(.failure(AuthError.signInFailed))
                 }
                 return
@@ -64,12 +63,12 @@ final class AuthManager {
                     print("This is the username: \(username)")
                 }
             }
-            
+
             // Successful sign in
             completion(.success(email))
         }
     }
-    
+
     /// Attempt to sign up
     /// - Parameters:
     ///   - username: Desired username
@@ -89,25 +88,24 @@ final class AuthManager {
         completion: @escaping (Bool) -> Void
     ) {
         // Make sure username is avaiable
-        
+
         Auth.auth().createUser(withEmail: emailAddress, password: password) { result, error in
             guard result != nil, error == nil else {
                 completion(false)
                 return
             }
-            
+
             DatabaseManager.shared.insertUser(with: emailAddress, username: username, firstname: firstName, lastName: lastName, phoneNumber: phoneNumnber, completion: completion)
         }
     }
-    
+
     /// Attempt to sign out
     /// - Parameter completion: Async callback of sign out result 
     public func signOut(completion: (Bool) -> Void) {
         do {
             try Auth.auth().signOut()
             completion(true)
-        }
-        catch {
+        } catch {
             print(error)
             completion(false)
         }

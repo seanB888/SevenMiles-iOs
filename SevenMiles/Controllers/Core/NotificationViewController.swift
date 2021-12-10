@@ -8,7 +8,7 @@
 import UIKit
 
 class NotificationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+
     private let noNotificationLabel: UILabel = {
         let label = UILabel()
         label.textColor = .secondaryLabel
@@ -39,7 +39,7 @@ class NotificationViewController: UIViewController, UITableViewDelegate, UITable
         )
         return table
     }()
-    
+
     // Spinner
     private let spinner: UIActivityIndicatorView = {
         let spinner = UIActivityIndicatorView()
@@ -47,7 +47,7 @@ class NotificationViewController: UIViewController, UITableViewDelegate, UITable
         spinner.startAnimating()
         return spinner
     }()
-    
+
     var notifications = [Notification]()
 
     override func viewDidLoad() {
@@ -61,10 +61,10 @@ class NotificationViewController: UIViewController, UITableViewDelegate, UITable
         let control = UIRefreshControl()
         control.addTarget(self, action: #selector(didPullToRefresh(_:)), for: .valueChanged)
         tableView.refreshControl = control
-        
+
         fetchNotification()
     }
-    
+
     @objc func didPullToRefresh(_ sender: UIRefreshControl) {
         sender.beginRefreshing()
         /// This is the refresher for the Notification view
@@ -76,7 +76,7 @@ class NotificationViewController: UIViewController, UITableViewDelegate, UITable
             }
         }
     }
-    
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.frame = view.bounds
@@ -85,7 +85,7 @@ class NotificationViewController: UIViewController, UITableViewDelegate, UITable
         spinner.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         spinner.center = view.center
     }
-    
+
     // to fecth notification
     func fetchNotification() {
         DatabaseManager.shared.getNotifications { [weak self] notifications in
@@ -97,7 +97,7 @@ class NotificationViewController: UIViewController, UITableViewDelegate, UITable
             }
         }
     }
-    
+
     func updateUI() {
         if notifications.isEmpty {
             noNotificationLabel.isHidden = false
@@ -108,20 +108,20 @@ class NotificationViewController: UIViewController, UITableViewDelegate, UITable
         }
         tableView.reloadData()
     }
-    
+
     // Table View
     func numberOfSections(in tableView: UITableView) -> Int {
         // return notifications.count
         return 1
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return notifications.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = notifications[indexPath.row]
-        
+
         switch model.type {
         case .postLike(let postName):
             guard let cell = tableView.dequeueReusableCell(
@@ -164,28 +164,28 @@ class NotificationViewController: UIViewController, UITableViewDelegate, UITable
             return cell
         }
     }
-    
+
     /// For hidding Row
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-    
+
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
     }
-    
+
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         guard editingStyle == .delete else {
             return
         }
         let model =  notifications[indexPath.row]
         model.isHidden = true
-        
+
         DatabaseManager.shared.markNotificationAsHidden(notificationID: model.identifier) { [weak self] success in
             DispatchQueue.main.async {
                 if success {
                     self?.notifications = self?.notifications.filter({$0.isHidden == false}) ?? []
-                    
+
                     tableView.beginUpdates()
                     tableView.deleteRows(at: [indexPath], with: .none)
                     tableView.endUpdates()
@@ -193,7 +193,7 @@ class NotificationViewController: UIViewController, UITableViewDelegate, UITable
             }
         }
     }
-    
+
     /// Fixed height for the Rows
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
@@ -207,7 +207,7 @@ extension NotificationViewController: NotificationsUserFollowTableViewCellDelega
                 print("Something went wrong mi idreen")
             }
         }
-        
+
         DatabaseManager.shared.updateRelationship(
             for: User(username: username,
                       profilePictureURL: nil,
@@ -216,11 +216,11 @@ extension NotificationViewController: NotificationsUserFollowTableViewCellDelega
                follow: true) { success in
                    if !success {
                        // notify the user that something went wrong
-                       
+
                    }
                }
     }
-    
+
     func notificationsUserFollowTableViewCell(_ cell: NotificationsUserFollowTableViewCell, didTapAvatarFor username: String) {
         // Haptics Manager
         HapticsManager.shared.vibrateForSelection()
@@ -249,8 +249,8 @@ extension NotificationViewController {
     func openPost(with identifier: String) {
         // Haptics Manager
         HapticsManager.shared.vibrateForSelection()
-        
-        ///resolve post model from database
+
+        /// resolve post model from database
         let vc = PostViewController(model: PostModel(identifier: identifier, user: User(
             username: "SeanB",
             profilePictureURL: nil,
