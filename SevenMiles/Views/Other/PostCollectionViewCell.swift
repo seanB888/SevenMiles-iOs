@@ -47,6 +47,8 @@ class PostCollectionViewCell: UICollectionViewCell {
                     // Generate a thumbnail
                     let asset = AVAsset(url: url)
                     let generator = AVAssetImageGenerator(asset: asset)
+                    // rotates thumnail image correct direction
+                    generator.appliesPreferredTrackTransform = true
 
                     do {
                         let cgImage = try generator.copyCGImage(at: .zero, actualTime: nil)

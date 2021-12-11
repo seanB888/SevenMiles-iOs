@@ -15,3 +15,18 @@ target 'SevenMiles' do
   pod 'SDWebImage', '~> 5.12'
 
 end
+
+target 'SevenMilesTests' do
+  use_frameworks!
+
+  pod 'Firebase/Core'
+  pod 'Firebase/Storage'
+  pod 'Firebase/Database'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Crashlytics'
+
+  pod 'ProgressHUD'
+  pod 'SDWebImage', '~> 5.12'
+
+end

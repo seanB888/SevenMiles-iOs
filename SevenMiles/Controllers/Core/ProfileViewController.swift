@@ -128,10 +128,16 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         vc.title = "Video"
         navigationController?.pushViewController(vc, animated: true)
     }
-
+    
+    /// Layout of vides from user
+    /// - Parameters:
+    ///   - collectionView: <#collectionView description#>
+    ///   - collectionViewLayout: <#collectionViewLayout description#>
+    ///   - indexPath: <#indexPath description#>
+    /// - Returns: <#description#>
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width: CGFloat = (view.width - 12) / 3
-        return CGSize(width: width, height: width * 1.5)
+        return CGSize(width: width, height: width * 1.3)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

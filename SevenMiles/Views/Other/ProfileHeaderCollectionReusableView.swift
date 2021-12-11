@@ -145,7 +145,7 @@ class ProfileHeaderCollectionReusableView: UICollectionReusableView {
             return
         }
 
-        delegate?.profileHeaderCollectionReusableView(self, didTapFollowersButtonWith: viewModel)
+        delegate?.profileHeaderCollectionReusableView(self, didTapFollowingButtonWith: viewModel)
     }
 
     func configure(with viewModel: ProfileHeaderViewModel) {

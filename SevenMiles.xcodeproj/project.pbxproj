@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1DE78E646BC964316E79B9C9 /* Pods_SevenMilesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D7830C47EE18BC5B5C48460 /* Pods_SevenMilesTests.framework */; };
 		2AD2563427A2EE661B4309D4 /* Pods_SevenMiles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87A9C71C42AD59DA48489EC9 /* Pods_SevenMiles.framework */; };
 		87065724273786F90030DCE0 /* ProfileHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87065723273786F90030DCE0 /* ProfileHeaderCollectionReusableView.swift */; };
 		8708793D271352EF00278864 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8708793C271352EF00278864 /* PostModel.swift */; };
@@ -59,6 +60,12 @@
 		8799E0DA2717871B00505AAC /* ExploreUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8799E0D92717871B00505AAC /* ExploreUserViewModel.swift */; };
 		87B055E7275FCD0300CC8EBA /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B055E6275FCD0300CC8EBA /* SwitchTableViewCell.swift */; };
 		87B055E92760C7BE00CC8EBA /* SwitchCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B055E82760C7BD00CC8EBA /* SwitchCellViewModel.swift */; };
+		87B9CC5B2764DD8900AB92AF /* Creator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B9CC5A2764DD8900AB92AF /* Creator.swift */; };
+		87B9CC5D2764DDB500AB92AF /* Hashtag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B9CC5C2764DDB500AB92AF /* Hashtag.swift */; };
+		87B9CC5F2764DDE000AB92AF /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B9CC5E2764DDE000AB92AF /* Post.swift */; };
+		87B9CC612764DDFE00AB92AF /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B9CC602764DDFE00AB92AF /* Banner.swift */; };
+		87B9CC632764DE1B00AB92AF /* ExploreResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B9CC622764DE1B00AB92AF /* ExploreResponse.swift */; };
+		87B9CC6B2764E46A00AB92AF /* SevenMilesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B9CC6A2764E46A00AB92AF /* SevenMilesTests.swift */; };
 		87BAA084272F668A0096E7A0 /* NotificationsUserFollowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BAA083272F668A0096E7A0 /* NotificationsUserFollowTableViewCell.swift */; };
 		87BAA088272F8EB70096E7A0 /* NotificationsPostLikeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BAA087272F8EB70096E7A0 /* NotificationsPostLikeTableViewCell.swift */; };
 		87BAA08A272F8EE10096E7A0 /* NotificationsPostCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BAA089272F8EE10096E7A0 /* NotificationsPostCommentTableViewCell.swift */; };
@@ -68,8 +75,19 @@
 		87D4CABE2762FCFE00435ED5 /* SettingsOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D4CABD2762FCFE00435ED5 /* SettingsOption.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		87B9CC6C2764E46A00AB92AF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8760FB312711112E003D915A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8760FB382711112E003D915A;
+			remoteInfo = SevenMiles;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		082AA6076905686DF6D41A99 /* Pods-SevenMiles.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SevenMiles.release.xcconfig"; path = "Target Support Files/Pods-SevenMiles/Pods-SevenMiles.release.xcconfig"; sourceTree = "<group>"; };
+		1D7830C47EE18BC5B5C48460 /* Pods_SevenMilesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SevenMilesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AD9E37F20FC127DCBB5F160 /* Pods-SevenMiles.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SevenMiles.debug.xcconfig"; path = "Target Support Files/Pods-SevenMiles/Pods-SevenMiles.debug.xcconfig"; sourceTree = "<group>"; };
 		87065723273786F90030DCE0 /* ProfileHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		8708793C271352EF00278864 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
@@ -125,6 +143,13 @@
 		87A9C71C42AD59DA48489EC9 /* Pods_SevenMiles.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SevenMiles.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		87B055E6275FCD0300CC8EBA /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
 		87B055E82760C7BD00CC8EBA /* SwitchCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchCellViewModel.swift; sourceTree = "<group>"; };
+		87B9CC5A2764DD8900AB92AF /* Creator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creator.swift; sourceTree = "<group>"; };
+		87B9CC5C2764DDB500AB92AF /* Hashtag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hashtag.swift; sourceTree = "<group>"; };
+		87B9CC5E2764DDE000AB92AF /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		87B9CC602764DDFE00AB92AF /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
+		87B9CC622764DE1B00AB92AF /* ExploreResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreResponse.swift; sourceTree = "<group>"; };
+		87B9CC682764E46A00AB92AF /* SevenMilesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SevenMilesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		87B9CC6A2764E46A00AB92AF /* SevenMilesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SevenMilesTests.swift; sourceTree = "<group>"; };
 		87BAA083272F668A0096E7A0 /* NotificationsUserFollowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsUserFollowTableViewCell.swift; sourceTree = "<group>"; };
 		87BAA087272F8EB70096E7A0 /* NotificationsPostLikeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsPostLikeTableViewCell.swift; sourceTree = "<group>"; };
 		87BAA089272F8EE10096E7A0 /* NotificationsPostCommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsPostCommentTableViewCell.swift; sourceTree = "<group>"; };
@@ -132,6 +157,8 @@
 		87C74EA22725E6C60002D0D3 /* RecordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButton.swift; sourceTree = "<group>"; };
 		87D4CABB2762FC2E00435ED5 /* SettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSection.swift; sourceTree = "<group>"; };
 		87D4CABD2762FCFE00435ED5 /* SettingsOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsOption.swift; sourceTree = "<group>"; };
+		8E9D70936FA722C460DC37F7 /* Pods-SevenMilesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SevenMilesTests.release.xcconfig"; path = "Target Support Files/Pods-SevenMilesTests/Pods-SevenMilesTests.release.xcconfig"; sourceTree = "<group>"; };
+		B24BA58428EF6D91B5A743BE /* Pods-SevenMilesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SevenMilesTests.debug.xcconfig"; path = "Target Support Files/Pods-SevenMilesTests/Pods-SevenMilesTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +170,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		87B9CC652764E46A00AB92AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DE78E646BC964316E79B9C9 /* Pods_SevenMilesTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -150,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				87A9C71C42AD59DA48489EC9 /* Pods_SevenMiles.framework */,
+				1D7830C47EE18BC5B5C48460 /* Pods_SevenMilesTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -159,6 +195,8 @@
 			children = (
 				5AD9E37F20FC127DCBB5F160 /* Pods-SevenMiles.debug.xcconfig */,
 				082AA6076905686DF6D41A99 /* Pods-SevenMiles.release.xcconfig */,
+				B24BA58428EF6D91B5A743BE /* Pods-SevenMilesTests.debug.xcconfig */,
+				8E9D70936FA722C460DC37F7 /* Pods-SevenMilesTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -167,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				8760FB3B2711112E003D915A /* SevenMiles */,
+				87B9CC692764E46A00AB92AF /* SevenMilesTests */,
 				8760FB3A2711112E003D915A /* Products */,
 				10DD25B062DAC4986EB5AB6D /* Pods */,
 				05E5FABDF6A90B92AAC0DCB2 /* Frameworks */,
@@ -177,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				8760FB392711112E003D915A /* SevenMiles.app */,
+				87B9CC682764E46A00AB92AF /* SevenMilesTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -240,6 +280,11 @@
 				8771AC05274208C600EF02A3 /* VerifiyIcon.swift */,
 				87D4CABB2762FC2E00435ED5 /* SettingsSection.swift */,
 				87D4CABD2762FCFE00435ED5 /* SettingsOption.swift */,
+				87B9CC5A2764DD8900AB92AF /* Creator.swift */,
+				87B9CC5C2764DDB500AB92AF /* Hashtag.swift */,
+				87B9CC5E2764DDE000AB92AF /* Post.swift */,
+				87B9CC602764DDFE00AB92AF /* Banner.swift */,
+				87B9CC622764DE1B00AB92AF /* ExploreResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -329,6 +374,14 @@
 			path = Authenticaton;
 			sourceTree = "<group>";
 		};
+		87B9CC692764E46A00AB92AF /* SevenMilesTests */ = {
+			isa = PBXGroup;
+			children = (
+				87B9CC6A2764E46A00AB92AF /* SevenMilesTests.swift */,
+			);
+			path = SevenMilesTests;
+			sourceTree = "<group>";
+		};
 		87BAA085272F8E010096E7A0 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
@@ -382,6 +435,26 @@
 			productReference = 8760FB392711112E003D915A /* SevenMiles.app */;
 			productType = "com.apple.product-type.application";
 		};
+		87B9CC672764E46A00AB92AF /* SevenMilesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 87B9CC6E2764E46A00AB92AF /* Build configuration list for PBXNativeTarget "SevenMilesTests" */;
+			buildPhases = (
+				9080493941CA092D5D2CD765 /* [CP] Check Pods Manifest.lock */,
+				87B9CC642764E46A00AB92AF /* Sources */,
+				87B9CC652764E46A00AB92AF /* Frameworks */,
+				87B9CC662764E46A00AB92AF /* Resources */,
+				DF2B229F03657795340152A8 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				87B9CC6D2764E46A00AB92AF /* PBXTargetDependency */,
+			);
+			name = SevenMilesTests;
+			productName = SevenMilesTests;
+			productReference = 87B9CC682764E46A00AB92AF /* SevenMilesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -389,11 +462,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1300;
+				LastSwiftUpdateCheck = 1310;
 				LastUpgradeCheck = 1300;
 				TargetAttributes = {
 					8760FB382711112E003D915A = {
 						CreatedOnToolsVersion = 13.0;
+					};
+					87B9CC672764E46A00AB92AF = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = 8760FB382711112E003D915A;
 					};
 				};
 			};
@@ -411,6 +488,7 @@
 			projectRoot = "";
 			targets = (
 				8760FB382711112E003D915A /* SevenMiles */,
+				87B9CC672764E46A00AB92AF /* SevenMilesTests */,
 			);
 		};
 /* End PBXProject section */
@@ -426,6 +504,13 @@
 				875DFB7F2711F1FA008B56DA /* Main.storyboard in Resources */,
 				8760FB4627111130003D915A /* Assets.xcassets in Resources */,
 				875DFB7A27114ADE008B56DA /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		87B9CC662764E46A00AB92AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,6 +573,45 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SevenMiles/Pods-SevenMiles-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		9080493941CA092D5D2CD765 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SevenMilesTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF2B229F03657795340152A8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SevenMilesTests/Pods-SevenMilesTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SevenMilesTests/Pods-SevenMilesTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SevenMilesTests/Pods-SevenMilesTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -499,6 +623,7 @@
 				8767A459271F837F0068705F /* AuthButton.swift in Sources */,
 				8767A457271F6AA30068705F /* AuthField.swift in Sources */,
 				87BAA088272F8EB70096E7A0 /* NotificationsPostLikeTableViewCell.swift in Sources */,
+				87B9CC5D2764DDB500AB92AF /* Hashtag.swift in Sources */,
 				8760FB7727111D9D003D915A /* HapticsManager.swift in Sources */,
 				87D4CABE2762FCFE00435ED5 /* SettingsOption.swift in Sources */,
 				874AA6762714ECC600829F94 /* PostComments.swift in Sources */,
@@ -514,6 +639,7 @@
 				8760FB6D27111D2B003D915A /* PostViewController.swift in Sources */,
 				8783A72C2719A47700C842E7 /* ExploreBannerCollectionViewCell.swift in Sources */,
 				8760FB5927111BE0003D915A /* CameraViewController.swift in Sources */,
+				87B9CC5B2764DD8900AB92AF /* Creator.swift in Sources */,
 				8769CB30271BC3FE00EBC24D /* ExploreManager.swift in Sources */,
 				8760FB6927111CB4003D915A /* TabBarViewController.swift in Sources */,
 				87BAA084272F668A0096E7A0 /* NotificationsUserFollowTableViewCell.swift in Sources */,
@@ -527,6 +653,7 @@
 				87B055E92760C7BE00CC8EBA /* SwitchCellViewModel.swift in Sources */,
 				8799E0DA2717871B00505AAC /* ExploreUserViewModel.swift in Sources */,
 				8760FB5D27111C09003D915A /* NotificationViewController.swift in Sources */,
+				87B9CC5F2764DDE000AB92AF /* Post.swift in Sources */,
 				875DFB8127121836008B56DA /* Extensions.swift in Sources */,
 				87065724273786F90030DCE0 /* ProfileHeaderCollectionReusableView.swift in Sources */,
 				8799E0CE27177B9200505AAC /* ExplorerSection.swift in Sources */,
@@ -542,15 +669,33 @@
 				8760FB5F27111C19003D915A /* ProfileViewController.swift in Sources */,
 				8708793D271352EF00278864 /* PostModel.swift in Sources */,
 				8783A72E2719A51100C842E7 /* ExplorePostCollectionViewCell.swift in Sources */,
+				87B9CC632764DE1B00AB92AF /* ExploreResponse.swift in Sources */,
 				8760FB3D2711112E003D915A /* AppDelegate.swift in Sources */,
 				8760FB7127111D5B003D915A /* StorageManager.swift in Sources */,
 				8760FB3F2711112E003D915A /* SceneDelegate.swift in Sources */,
+				87B9CC612764DDFE00AB92AF /* Banner.swift in Sources */,
 				8760FB6327111C59003D915A /* SignInViewController.swift in Sources */,
 				8799E0D227177C1400505AAC /* ExploreSectionType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		87B9CC642764E46A00AB92AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				87B9CC6B2764E46A00AB92AF /* SevenMilesTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		87B9CC6D2764E46A00AB92AF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8760FB382711112E003D915A /* SevenMiles */;
+			targetProxy = 87B9CC6C2764E46A00AB92AF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		8760FB4727111130003D915A /* LaunchScreen.storyboard */ = {
@@ -744,6 +889,54 @@
 			};
 			name = Release;
 		};
+		87B9CC6F2764E46A00AB92AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B24BA58428EF6D91B5A743BE /* Pods-SevenMilesTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NVBAMR8VDL;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.5fourlab.SevenMilesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SevenMiles.app/SevenMiles";
+			};
+			name = Debug;
+		};
+		87B9CC702764E46A00AB92AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E9D70936FA722C460DC37F7 /* Pods-SevenMilesTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NVBAMR8VDL;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.5fourlab.SevenMilesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SevenMiles.app/SevenMiles";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -761,6 +954,15 @@
 			buildConfigurations = (
 				8760FB4E27111130003D915A /* Debug */,
 				8760FB4F27111130003D915A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		87B9CC6E2764E46A00AB92AF /* Build configuration list for PBXNativeTarget "SevenMilesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				87B9CC6F2764E46A00AB92AF /* Debug */,
+				87B9CC702764E46A00AB92AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

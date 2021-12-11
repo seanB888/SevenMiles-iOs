@@ -25,7 +25,32 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             SettingsSection(
                 title: "Prefernces",
                 options: [
-                    SettingsOption(title: "Save Videos", handler: { })
+                    SettingsOption(title: "Save Videos", handler: {
+                        DispatchQueue.main.async {
+                            //
+                        }
+                    })
+                ]
+            ),
+            SettingsSection(
+                title: "Rate this app",
+                options: [
+                    SettingsOption(title: "Rate App", handler: {
+                        DispatchQueue.main.async {
+                            // Add method
+                        }
+                    }),
+                    SettingsOption(title: "Share App", handler: { [weak self] in
+                        DispatchQueue.main.async {
+                            // Add method to send to Appstore link
+                            guard let url = URL(string: "https://guhso.com") else {
+                                return
+                            }
+                            // presents a sharesheet
+                            let vc = UIActivityViewController(activityItems: [url], applicationActivities: [])
+                            self?.present(vc, animated: true, completion: nil)
+                        }
+                    })
                 ]
             ),
             SettingsSection(
