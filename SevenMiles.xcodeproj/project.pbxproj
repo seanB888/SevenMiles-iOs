@@ -224,6 +224,7 @@
 		8760FB3B2711112E003D915A /* SevenMiles */ = {
 			isa = PBXGroup;
 			children = (
+				87A64530277374B600ABD9C4 /* Messenger */,
 				8760FB5127111AA6003D915A /* Controllers */,
 				8760FB5527111B3E003D915A /* Managers */,
 				8760FB5327111B0F003D915A /* Models */,
@@ -270,21 +271,21 @@
 		8760FB5327111B0F003D915A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				8708793C271352EF00278864 /* PostModel.swift */,
+				87B9CC5A2764DD8900AB92AF /* Creator.swift */,
+				87B9CC602764DDFE00AB92AF /* Banner.swift */,
+				87B9CC5E2764DDE000AB92AF /* Post.swift */,
 				874AA6752714ECC600829F94 /* PostComments.swift */,
-				874AA6772714F04E00829F94 /* User.swift */,
+				8708793C271352EF00278864 /* PostModel.swift */,
 				8799E0CD27177B9200505AAC /* ExplorerSection.swift */,
+				87B9CC622764DE1B00AB92AF /* ExploreResponse.swift */,
 				8799E0CF27177BCA00505AAC /* ExploreCell.swift */,
 				8799E0D127177C1400505AAC /* ExploreSectionType.swift */,
+				87B9CC5C2764DDB500AB92AF /* Hashtag.swift */,
 				873065AB272DDDB9007BC809 /* Notification.swift */,
-				8771AC05274208C600EF02A3 /* VerifiyIcon.swift */,
 				87D4CABB2762FC2E00435ED5 /* SettingsSection.swift */,
 				87D4CABD2762FCFE00435ED5 /* SettingsOption.swift */,
-				87B9CC5A2764DD8900AB92AF /* Creator.swift */,
-				87B9CC5C2764DDB500AB92AF /* Hashtag.swift */,
-				87B9CC5E2764DDE000AB92AF /* Post.swift */,
-				87B9CC602764DDFE00AB92AF /* Banner.swift */,
-				87B9CC622764DE1B00AB92AF /* ExploreResponse.swift */,
+				874AA6772714F04E00829F94 /* User.swift */,
+				8771AC05274208C600EF02A3 /* VerifiyIcon.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -353,14 +354,14 @@
 		8760FB6B27111CE3003D915A /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				87BAA085272F8E010096E7A0 /* Auth */,
+				87BAA086272F8E2C0096E7A0 /* Explore */,
+				87BAA08B272F8F5C0096E7A0 /* Notifications */,
 				874AA6792715053C00829F94 /* CommentTableViewCell.swift */,
 				875D3647274FD1C400D1595B /* PostCollectionViewCell.swift */,
 				87065723273786F90030DCE0 /* ProfileHeaderCollectionReusableView.swift */,
 				87C74EA22725E6C60002D0D3 /* RecordButton.swift */,
 				87B055E6275FCD0300CC8EBA /* SwitchTableViewCell.swift */,
-				87BAA085272F8E010096E7A0 /* Auth */,
-				87BAA086272F8E2C0096E7A0 /* Explore */,
-				87BAA08B272F8F5C0096E7A0 /* Notifications */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -372,6 +373,13 @@
 				8760FB6427111C68003D915A /* SignUpViewController.swift */,
 			);
 			path = Authenticaton;
+			sourceTree = "<group>";
+		};
+		87A64530277374B600ABD9C4 /* Messenger */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Messenger;
 			sourceTree = "<group>";
 		};
 		87B9CC692764E46A00AB92AF /* SevenMilesTests */ = {

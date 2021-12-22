@@ -174,6 +174,13 @@ class PostViewController: UIViewController {
     private func configureVideo() {
         StorageManager.shared.getDownloadURL(for: model) { [weak self] result in
             DispatchQueue.main.async {
+                // To locate the video
+                guard let path = Bundle.main.path(forResource: "bikelife", ofType: ".mp4") else {
+                    return
+                }
+                let url = URL(fileURLWithPath: path)
+                self?.player = AVPlayer(url: url)
+                
                 guard let strongSelf = self else {
                     return
                 }
@@ -187,18 +194,16 @@ class PostViewController: UIViewController {
                     playerLayer.frame = strongSelf.view.bounds
                     playerLayer.videoGravity = .resizeAspectFill
                     strongSelf.videoView.layer.addSublayer(playerLayer)
-                    strongSelf.player?.volume = 5
+                    strongSelf.player?.volume = 0.3
                     strongSelf.player?.play()
                 case.failure:
-                    // To locate the video
-                    guard let path = Bundle.main.path(forResource: "bikelife", ofType: ".mp4") else {
-                        return
-                    }
+                    break
                 }
             }
         }
 
-//        let url = URL(fileURLWithPath: path)
+        let url = URL(fileURLWithPath: model.videoChildPath)
+        print("video url: \(url)")
 
         guard let player = player else {
             return

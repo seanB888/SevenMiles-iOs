@@ -31,7 +31,7 @@ class HomeViewController: UIViewController {
         /*
          We want the background to be clear
          to have the text change color.
-        // control.selectedSegmentTintColor = .clear
+         control.selectedSegmentTintColor = .clear
          */
         control.selectedSegmentTintColor = .systemOrange
         control.setTitleTextAttributes(titleTextAttributes, for: .normal)
@@ -181,7 +181,8 @@ extension HomeViewController: UIPageViewControllerDataSource {
 
         let priorIndex = index - 1
         let model = currentPosts[priorIndex]
-        let vc = PostViewController(model: model)
+        let vc =
+        PostViewController(model: model)
         vc.delegate = self
         return vc
     }

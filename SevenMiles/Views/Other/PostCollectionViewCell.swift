@@ -21,7 +21,7 @@ class PostCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         clipsToBounds = true
         contentView.addSubview(imageView)
-        contentView.backgroundColor = .systemOrange
+        contentView.backgroundColor = .secondarySystemBackground
     }
 
     required init?(coder: NSCoder) {
@@ -61,9 +61,5 @@ class PostCollectionViewCell: UICollectionViewCell {
                 }
             }
         }
-        // Derive child path
-
-        // Get the download url
-
     }
 }
